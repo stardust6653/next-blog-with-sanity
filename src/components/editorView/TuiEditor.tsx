@@ -5,14 +5,14 @@ import '@toast-ui/editor/dist/i18n/ko-kr';
 import { Editor } from '@toast-ui/react-editor';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import codeSyntaxHighlightPlugin from '@toast-ui/editor-plugin-code-syntax-highlight';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { postData } from '@/controller/CRUD';
 
 const TuiEditor = () => {
   const viewHeight = Number(window.outerHeight - 450) + 'px';
   const editorRef = useRef<any>(null);
   const [title, setTitle] = useState('');
-  const [md, setMd] = useState('');
+  const [markdown, setMarkdown] = useState('');
 
   const toolbarItems = [
     ['heading', 'bold', 'italic', 'strike'],
@@ -27,26 +27,33 @@ const TuiEditor = () => {
   const data = {
     id: Date.now(),
     title,
-    md,
+    markdown,
   };
+
+  useEffect(() => {
+    setMarkdown(() => editorRef.current.getInstance().getMarkdown());
+  }, [markdown]);
 
   return (
     <form
       className="w-3/5"
       onSubmit={(event) => {
-        setMd(editorRef.current.getInstance().getMarkdown());
+        event.preventDefault();
         postData(event, data);
       }}
     >
       <input
         placeholder="제목을 입력해주세요."
-        className="text-4xl mb-5 outline-none pl-5 w-full"
+        className="text-4xl mb-5 outline-none pl-5 pr-5 w-full"
         onChange={(event) => {
           setTitle(event.target.value);
         }}
         required
       />
       <Editor
+        onChange={() => {
+          setMarkdown(editorRef.current.getInstance().getMarkdown());
+        }}
         initialValue="글을 적어주세요!"
         previewStyle="vertical"
         height={viewHeight}

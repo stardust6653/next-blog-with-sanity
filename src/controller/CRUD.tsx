@@ -24,7 +24,7 @@ export const getData = async () => {
 interface PostProps {
   id: number;
   title: string;
-  md: string;
+  markdown: string;
 }
 
 export const postData = (event: React.FormEvent<HTMLFormElement>, data: PostProps) => {
