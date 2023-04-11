@@ -10,6 +10,10 @@ const nextConfig = {
         // hostname: "사용하고자 하는 image URL"
         hostname: 'velog.velcdn.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
     ],
   },
 };
