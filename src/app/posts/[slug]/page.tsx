@@ -1,16 +1,39 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { getDescFilteredData } from '@/controller/CRUD';
+import Image from 'next/image';
 
 const MarkDownViewer = dynamic(() => import('../../../components/viewer/MarkDownViewer'), {
   ssr: false,
 });
 
-const page = () => {
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+const page = async ({ params }: Props) => {
+  const data = await getDescFilteredData();
+
+  const currentData = data.filter((item) => String(item.id) === params.slug);
+
   return (
     <div className="flex justify-center overflow-scroll">
       <article className="mt-12 mb-12 w-1/2">
-        <h1 className="text-5xl font-bold mb-6">Title</h1>
-        <MarkDownViewer />
+        <h1 className="text-5xl font-bold mb-6">{currentData[0].title}</h1>
+        <p className="text-end">발행일 : {currentData[0].date}</p>
+        <Image
+          src={currentData[0].previewImg}
+          alt=""
+          width="320"
+          height="208"
+          placeholder="blur"
+          blurDataURL={currentData[0].previewImg}
+          style={{ objectFit: 'cover' }}
+          className="shadow-md rounded-xl overflow-hidden bg-no-repeat h-52 bg-center"
+        />
+        <MarkDownViewer html={currentData[0].html} />
       </article>
     </div>
   );
