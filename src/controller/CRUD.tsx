@@ -1,9 +1,13 @@
-import { db } from '@/firebase';
-import { addDoc, collection, getDocs, query } from 'firebase/firestore';
+import { addDoc, collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
+import { db } from '../firebase';
 
 interface DataProps {
+  id: number;
   title: string;
-  md: string;
+  html: string;
+  date: string;
+  previewImg: string;
+  description: string;
 }
 
 export const getData = async () => {
@@ -24,12 +28,26 @@ export const getData = async () => {
 interface PostProps {
   id: number;
   title: string;
-  markdown: string;
+  html: string;
+  date: string;
 }
 
-export const postData = (event: React.FormEvent<HTMLFormElement>, data: PostProps) => {
-  event.preventDefault();
+export const postData = (data: PostProps) => {
   const postRef = collection(db, 'posts');
 
   addDoc(postRef, data);
+};
+
+export const getDescFilteredData = async () => {
+  const postRef = collection(db, 'posts');
+  const queryData = query(postRef, orderBy('id', 'desc'));
+  const querySnapShot = await getDocs(queryData);
+  const descFilteredDataArr: DataProps[] = [];
+
+  querySnapShot.forEach((item) => {
+    const returnDoc = item.data() as DataProps;
+    descFilteredDataArr.push(returnDoc);
+  });
+
+  return descFilteredDataArr;
 };
