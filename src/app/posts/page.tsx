@@ -9,7 +9,7 @@ const page = async () => {
     <section className="flex justify-center mt-8 w-full mb-10">
       <div className="flex flex-col items-center">
         <h2 className="text-4xl font-bold">Post</h2>
-        <div className="flex flex-wrap w-7/12 justify-between">
+        <div className="flex flex-wrap justify-center w-7/12">
           {data.map((item, i) => {
             return (
               <PostCard
@@ -18,6 +18,7 @@ const page = async () => {
                 title={item.title}
                 description={item.description}
                 date={item.date}
+                id={String(item.id)}
               />
             );
           })}

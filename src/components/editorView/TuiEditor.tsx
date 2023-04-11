@@ -54,7 +54,6 @@ const TuiEditor = () => {
           <Editor
             onChange={() => {
               setHTML(editorRef.current.getInstance().getHTML());
-              console.log(html);
             }}
             initialValue="글을 적어주세요!"
             previewStyle="vertical"

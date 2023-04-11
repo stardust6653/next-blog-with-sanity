@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BsPlusSquare } from 'react-icons/bs';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { deleteObject, getDownloadURL, getStorage, uploadBytes } from 'firebase/storage';
 import { storage } from '../../firebase';
 import { ref as sRef } from 'firebase/storage';
@@ -136,8 +135,8 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
           type="submit"
           className="p-5 pt-3 pb-3 mt-5 rounded-lg text-amber-50 font-semibold transition ease-in-out delay-150 bg-blue-500  hover:bg-indigo-500 duration-300"
           onClick={() => {
-            console.log(data);
             postData(data);
+            router.push('/posts');
           }}
         >
           배포하기
