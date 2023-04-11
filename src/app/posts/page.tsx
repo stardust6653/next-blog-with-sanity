@@ -1,16 +1,16 @@
-import React from 'react';
-import PostCard from '../components/home/PostCard';
+import PostCard from '@/components/home/PostCard';
 import { getDescFilteredData } from '@/controller/CRUD';
+import React from 'react';
 
-const Home = async () => {
+const page = async () => {
   const data = await getDescFilteredData();
 
   return (
-    <section className="flex justify-center mt-8 w-full mb-10 ">
+    <section className="flex justify-center mt-8 w-full mb-10">
       <div className="flex flex-col items-center">
-        <h2 className="text-4xl font-bold">New Post</h2>
+        <h2 className="text-4xl font-bold">Post</h2>
         <div className="flex flex-wrap justify-center w-7/12">
-          {data.slice(0, 8).map((item, i) => {
+          {data.map((item, i) => {
             return (
               <PostCard
                 key={i}
@@ -28,4 +28,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default page;

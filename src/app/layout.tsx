@@ -1,3 +1,6 @@
+import React from 'react';
+import Footer from '../components/common/Footer';
+import Header from '../components/common/Header';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
 
@@ -11,7 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={sans.className}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
