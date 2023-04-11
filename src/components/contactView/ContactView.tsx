@@ -6,7 +6,7 @@ import { FiGithub } from 'react-icons/fi';
 
 const Contact = () => {
   return (
-    <div className="p-16">
+    <div className="p-16 h-screen">
       <h1 className="text-3xl text-left">
         안녕하세요. <br />
         <span className="text-blue-800 font-bold">프론트엔드 개발자 박소예</span>입니다.
