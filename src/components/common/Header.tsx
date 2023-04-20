@@ -18,7 +18,7 @@ const Header = () => {
             <Link href="/posts">Posts</Link>
           </li>
           <li className="text-gray-300 ml-8">
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact">Admin</Link>
           </li>
         </ul>
       </nav>
