@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 };
 
 const page = async () => {
-  const data = await getDescFilteredData();
+  // const data = await getDescFilteredData();
 
   return (
     <section className="flex justify-center mt-8 w-full mb-10">
-      <div className="flex flex-col items-center">
+      {/* <div className="flex flex-col items-center">
         <h2 className="text-4xl font-bold">Post</h2>
         <div className="md:w-12/12 lg:w-9/12 xl:w-8/12 flex flex-wrap justify-center">
           {data.map((item, i) => {
@@ -29,7 +29,7 @@ const page = async () => {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
