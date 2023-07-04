@@ -3,6 +3,7 @@ import Footer from '../components/common/Footer';
 import Header from '../components/common/Header';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
+import AuthContext from '../context/AuthContext';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 
@@ -19,11 +20,13 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={sans.className}>
+    <html lang="ko" className={sans.className}>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <AuthContext>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AuthContext>
       </body>
     </html>
   );
