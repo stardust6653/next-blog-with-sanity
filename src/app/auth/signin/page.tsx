@@ -7,7 +7,6 @@ import React from 'react';
 
 const SignPage = async () => {
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   if (session) {
     redirect('/');
