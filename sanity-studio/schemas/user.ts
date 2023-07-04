@@ -3,6 +3,7 @@ export default {
   name: 'user',
   type: 'document',
   fields: [
+    {title: 'Id', name: 'id', type: 'string'},
     {
       title: 'Username',
       name: 'username',
