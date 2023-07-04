@@ -4,6 +4,7 @@ import Header from '../components/common/Header';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
 import AuthContext from '../context/AuthContext';
+import SWRConfigContext from '@/context/SWRConfigContext';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko" className={sans.className}>
       <body>
         <AuthContext>
-          <Header />
-          <main>{children}</main>
+          <SWRConfigContext>
+            <Header />
+            <main>{children}</main>
+          </SWRConfigContext>
           <Footer />
         </AuthContext>
       </body>
