@@ -7,7 +7,7 @@ import { AiOutlineLinkedin } from 'react-icons/ai';
 import { FiGithub } from 'react-icons/fi';
 
 const Home = async () => {
-  const data = await getDescFilteredData();
+  // const data = await getDescFilteredData();
 
   return (
     <section className="flex flex-col justify-center items-center mt-8 w-full mb-10 ">
@@ -40,7 +40,7 @@ const Home = async () => {
 
       <div className="flex flex-col items-center">
         <h2 className="text-4xl font-bold pt-8">New Post</h2>
-        <div className="md:w-12/12 lg:w-9/12 xl:w-8/12 flex flex-wrap justify-center">
+        {/* <div className="md:w-12/12 lg:w-9/12 xl:w-8/12 flex flex-wrap justify-center">
           {data.slice(0, 8).map((item, i) => {
             return (
               <PostCard
@@ -53,7 +53,7 @@ const Home = async () => {
               />
             );
           })}
-        </div>
+        </div> */}
       </div>
     </section>
   );
