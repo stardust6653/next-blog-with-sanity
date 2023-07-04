@@ -10,12 +10,12 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
     GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: process.env.GITHUB_ID || '',
+      clientSecret: process.env.GITHUB_SECRET || '',
     }),
     KakaoProvider({
-      clientId: process.env.KAKAO_CLIENT_ID,
-      clientSecret: process.env.KAKAO_SECRET,
+      clientId: process.env.KAKAO_CLIENT_ID || '',
+      clientSecret: process.env.KAKAO_SECRET || '',
     }),
   ],
   pages: {
