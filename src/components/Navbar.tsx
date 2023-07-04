@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -17,6 +19,8 @@ const menu: Props[] = [
 const Navbar = () => {
   const { data: session } = useSession();
   const user = session?.user;
+
+  console.log(session);
 
   return (
     <nav>
@@ -45,7 +49,7 @@ const Navbar = () => {
         )}
         {user && (
           <li>
-            <Link href={`/user/${user.name}`}>
+            <Link href={`/user/${user.id}`}>
               <Avatar image={user.image} />
             </Link>
           </li>

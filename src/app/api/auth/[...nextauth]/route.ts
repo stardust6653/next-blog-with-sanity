@@ -2,6 +2,8 @@ import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 import KakaoProvider from 'next-auth/providers/kakao';
+import { signIn } from 'next-auth/react';
+import { addUser } from '@/service/user';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -19,13 +21,21 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session }) {
-      console.log(session);
+    async signIn({ user: { id, email, image, name } }) {
+      if (!email) {
+        return false;
+      }
+      addUser({ id, name: name || '', image, email, username: email.split('@')[0] });
+      return true;
+    },
+    async session({ session, token }) {
+      console.log(token);
       const user = session?.user;
       if (user) {
         session.user = {
           ...user,
           username: user.email?.split('@')[0] || '',
+          id: token.sub ?? '',
         };
       }
       return session;
