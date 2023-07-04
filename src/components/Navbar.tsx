@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import useSWR from 'swr';
 import Button from './ui/Button';
 import Avatar from './Avatar';
 
@@ -17,10 +18,10 @@ const menu: Props[] = [
 ];
 
 const Navbar = () => {
+  const { data, error, isLoading } = useSWR('/api/ownership');
+  const ownership = data?.[1];
   const { data: session } = useSession();
   const user = session?.user;
-
-  console.log(session);
 
   return (
     <nav>
@@ -35,9 +36,11 @@ const Navbar = () => {
 
         {session ? (
           <>
-            <li key="Create" className="text-gray-300 ml-8 hover:text-yellow-500">
-              <Link href="/create">Create</Link>
-            </li>
+            {ownership && (
+              <li key="Create" className="text-gray-300 ml-8 hover:text-yellow-500">
+                <Link href="/create">Create</Link>
+              </li>
+            )}
             <li>
               <Button text="Log Out" onClick={() => signOut()} />
             </li>
