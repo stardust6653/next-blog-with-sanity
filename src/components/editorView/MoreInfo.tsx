@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BsPlusSquare } from 'react-icons/bs';
 import { redirect, useRouter } from 'next/navigation';
-import Image from 'next/image';
 import EditorButton from '../editor/EditorButton';
 import { getThumbnailURL } from '@/util/getThumbnailURL';
 import AddInfoImage from '../editor/AddInfoImage';
@@ -36,6 +35,7 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
   const [imgUrl, setImgUrl] = useState('');
   const [visible, setVisible] = useState(false);
   const [description, setDescription] = useState('');
+  const router = useRouter();
 
   return (
     <div className="flex justify-center items-center flex-col h-screen pb-32">
@@ -51,7 +51,13 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
         <WriteIntroduction setDescription={setDescription} />
       </div>
       <div className="flex justify-end mr-3 w-full">
-        <EditorButton text="취소하기" color="bg-rose-500 hover:bg-red-600" />
+        <EditorButton
+          text="취소하기"
+          color="bg-rose-500 hover:bg-red-600"
+          onClick={() => {
+            router.push('/');
+          }}
+        />
         <EditorButton text="배포하기" type="submit" color="bg-blue-500 hover:bg-indigo-500" />
       </div>
     </div>

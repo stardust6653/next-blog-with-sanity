@@ -46,7 +46,9 @@ const TuiEditor = () => {
                   text="출간하기"
                   color="bg-blue-500 hover:bg-indigo-500"
                   type="submit"
-                  setVisible={setVisible}
+                  onClick={() => {
+                    setVisible(true);
+                  }}
                 />
               </div>
             </form>
