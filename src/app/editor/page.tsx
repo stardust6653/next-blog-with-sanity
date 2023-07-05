@@ -5,7 +5,7 @@ const Editor = dynamic(() => import('../../components/editorView/TuiEditor'), {
   ssr: false,
 });
 
-const page = () => {
+const EditorPage = () => {
   return (
     <div className="flex justify-center mt-8 h-screen">
       <Editor />
@@ -13,4 +13,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default EditorPage;
