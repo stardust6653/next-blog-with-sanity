@@ -6,11 +6,12 @@ type Props = {
   text: string;
   color: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  onClick?: () => void;
   setVisible?: any;
   href?: string;
 };
 
-const EditorButton = ({ text, color, setVisible, type = 'button', href }: Props) => {
+const EditorButton = ({ text, color, onClick, setVisible, type = 'button', href }: Props) => {
   return (
     <button
       type={type}

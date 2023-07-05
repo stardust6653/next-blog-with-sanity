@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BsPlusSquare } from 'react-icons/bs';
 import { redirect, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import EditorButton from '../editor/EditorButton';
 
 export interface FileTypes {
   name: string;
@@ -84,19 +85,8 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
         />
       </div>
       <div className="flex justify-end mr-3 w-full">
-        <button
-          className="p-5 pt-3 pb-3 mt-5 mr-2 rounded-lg text-amber-50 font-semibold transition ease-in-out delay-150 bg-rose-500  hover:bg-red-600 duration-300"
-          onClick={() => router.back()}
-        >
-          취소하기
-        </button>
-        <button
-          type="submit"
-          className="p-5 pt-3 pb-3 mt-5 rounded-lg text-amber-50 font-semibold transition ease-in-out delay-150 bg-blue-500  hover:bg-indigo-500 duration-300"
-          onClick={() => {}}
-        >
-          배포하기
-        </button>
+        <EditorButton text="취소하기" color="bg-rose-500 hover:bg-red-600" />
+        <EditorButton text="배포하기" type="submit" color="bg-blue-500 hover:bg-indigo-500" />
       </div>
     </div>
   );
