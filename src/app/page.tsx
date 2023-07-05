@@ -1,14 +1,11 @@
 import React from 'react';
 import PostCard from '../components/home/PostCard';
-import { getDescFilteredData } from '../controller/CRUD';
 import profile from '../../public/images/profile-photo.jpg';
 import Image from 'next/image';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { FiGithub } from 'react-icons/fi';
 
 const Home = async () => {
-  // const data = await getDescFilteredData();
-
   return (
     <section className="flex flex-col justify-center items-center mt-8 w-full mb-10 ">
       <div className="flex justify-center md:w-10/12 lg:w-7/12 border-b border-solid border-gray-400">
