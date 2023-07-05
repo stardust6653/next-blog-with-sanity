@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BsPlusSquare } from 'react-icons/bs';
 import { redirect, useRouter } from 'next/navigation';
-import { deleteObject, getDownloadURL, getStorage, uploadBytes } from 'firebase/storage';
-import { storage } from '../../firebase';
-import { ref as sRef } from 'firebase/storage';
 import Image from 'next/image';
-import { postData } from '@/controller/CRUD';
 
 export interface FileTypes {
   name: string;
@@ -36,41 +32,6 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
   const [imgUrl, setImgUrl] = useState('');
   const [visible, setVisible] = useState(false);
   const [description, setDescription] = useState('');
-
-  const date = new Date();
-
-  const postDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-
-  const data: DataProps = {
-    id: Date.now(),
-    title,
-    html,
-    date: postDate,
-    previewImg: imgUrl,
-    description,
-  };
-
-  const previewImgUpload = () => {
-    if (imgUpload === null) return;
-
-    const id = Date.now();
-    const imageRef = sRef(storage, `images/${id}`);
-
-    uploadBytes(imageRef, imgUpload as File).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImgUrl(url);
-      });
-    });
-  };
-
-  const deleteImg = (event: React.MouseEvent<HTMLElement>) => {
-    const deleteRef = sRef(storage, imgUrl);
-    deleteObject(deleteRef);
-    setImgUrl('');
-    setVisible(false);
-  };
-
-  useEffect(previewImgUpload, [imgUpload]);
 
   return (
     <div className="flex justify-center items-center flex-col h-screen pb-32">
@@ -111,9 +72,7 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
             </>
           )}
 
-          <button className="mt-3 ml-2 text-slate-400 hover:text-slate-800" onClick={deleteImg}>
-            제거
-          </button>
+          <button className="mt-3 ml-2 text-slate-400 hover:text-slate-800">제거</button>
         </div>
         <textarea
           className="w-80 h-52 resize-none ml-4 shadow-md rounded-xl outline-none p-8 text-xl"
@@ -134,10 +93,7 @@ const MoreInfo = ({ title, html }: PropsTypes) => {
         <button
           type="submit"
           className="p-5 pt-3 pb-3 mt-5 rounded-lg text-amber-50 font-semibold transition ease-in-out delay-150 bg-blue-500  hover:bg-indigo-500 duration-300"
-          onClick={() => {
-            postData(data);
-            router.push('/posts');
-          }}
+          onClick={() => {}}
         >
           배포하기
         </button>
