@@ -1,5 +1,4 @@
 import React from 'react';
-import { getDescFilteredData } from '../../controller/CRUD';
 import PostCard from '../../components/home/PostCard';
 import { Metadata } from 'next';
 
