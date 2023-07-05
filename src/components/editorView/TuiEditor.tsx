@@ -9,7 +9,7 @@ import TitleInput from '../editor/TitleInput';
 import ToastUiEditor from '../editor/ToastUiEditor';
 import EditorButton from '../editor/EditorButton';
 import useSWR from 'swr';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 const TuiEditor = () => {
   const { data, error, isLoading } = useSWR('/api/ownership');
@@ -17,8 +17,10 @@ const TuiEditor = () => {
 
   const editorRef = useRef<any>(null);
   const [title, setTitle] = useState<string>('');
-  const [visiable, setVisible] = useState<boolean>(false);
+  const [modalVisiable, setModalVisible] = useState<boolean>(false);
   const [html, setHTML] = useState<string>('');
+
+  const router = useRouter();
 
   useEffect(() => {
     setHTML(() => editorRef.current?.getInstance().getHTML());
@@ -28,8 +30,8 @@ const TuiEditor = () => {
     <>
       {ownership ? (
         <>
-          {visiable ? (
-            <MoreInfo title={title} html={html} />
+          {modalVisiable ? (
+            <MoreInfo title={title} html={html} setModalVisible={() => setModalVisible(false)} />
           ) : (
             <form
               className="w-[95%]"
@@ -41,13 +43,18 @@ const TuiEditor = () => {
               <ToastUiEditor editorRef={editorRef} setHTML={setHTML} />
 
               <div className="flex justify-end mr-3">
-                <EditorButton text="취소하기" color="bg-rose-500 hover:bg-red-600" href="/posts" />
+                <EditorButton
+                  text="취소하기"
+                  color="bg-rose-500 hover:bg-red-600"
+                  onClick={() => {
+                    router.push('/');
+                  }}
+                />
                 <EditorButton
                   text="출간하기"
                   color="bg-blue-500 hover:bg-indigo-500"
-                  type="submit"
                   onClick={() => {
-                    setVisible(true);
+                    setModalVisible(true);
                   }}
                 />
               </div>
