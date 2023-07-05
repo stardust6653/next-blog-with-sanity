@@ -2,7 +2,6 @@ import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 import KakaoProvider from 'next-auth/providers/kakao';
-import { signIn } from 'next-auth/react';
 import { addUser } from '@/service/user';
 
 export const authOptions: NextAuthOptions = {
@@ -29,7 +28,6 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
     async session({ session, token }) {
-      console.log(token);
       const user = session?.user;
       if (user) {
         session.user = {
