@@ -38,7 +38,7 @@ const Navbar = () => {
           <>
             {ownership && (
               <li key="Create" className="text-gray-300 ml-8 hover:text-yellow-500">
-                <Link href="/create">Create</Link>
+                <Link href="/editor">Editor</Link>
               </li>
             )}
             <li>
@@ -51,11 +51,13 @@ const Navbar = () => {
           </li>
         )}
         {user && (
-          <li>
-            <Link href={`/user/${user.id}`}>
-              <Avatar image={user.image} />
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link href={`/user/${user.id}`}>
+                <Avatar image={user.image} />
+              </Link>
+            </li>
+          </>
         )}
       </ul>
     </nav>
