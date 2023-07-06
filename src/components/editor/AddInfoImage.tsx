@@ -8,7 +8,8 @@ type Props = {
 const AddInfoImage = ({ imgUrl }: Props) => {
   return (
     <>
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={imgUrl}
         alt="썸네일"
         width={320}
