@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BsPlusSquare } from 'react-icons/bs';
 import EditorButton from '../editor/EditorButton';
-import { getThumbnailURL } from '@/util/getThumbnailURL';
+import { getThumbnailURL } from '../../util/getThumbnailURL';
 import AddInfoImage from '../editor/AddInfoImage';
 import Thumbnail from '../editor/Thumbnail';
 import DeleteButton from '../editor/DeleteButton';
@@ -18,7 +18,7 @@ export interface FileTypes {
 
 interface PropsTypes {
   title: string;
-  html: string;
+  content: string;
   setModalVisible: () => void;
 }
 
@@ -31,10 +31,18 @@ interface DataProps {
   description: string;
 }
 
-const MoreInfo = ({ title, html, setModalVisible }: PropsTypes) => {
-  const [imgUrl, setImgUrl] = useState('');
-  const [visible, setVisible] = useState(false);
-  const [description, setDescription] = useState('');
+const MoreInfo = ({ setModalVisible, title, content }: PropsTypes) => {
+  const [imgUrl, setImgUrl] = useState<string>('');
+  const [visible, setVisible] = useState<boolean>(false);
+  const [description, setDescription] = useState<string>('');
+  const [save, setSave] = useState<boolean>(false);
+
+  const dataObj = {
+    imgUrl,
+    title,
+    content,
+    description,
+  };
 
   return (
     <div className="flex justify-center items-center flex-col h-screen pb-32">
@@ -50,8 +58,17 @@ const MoreInfo = ({ title, html, setModalVisible }: PropsTypes) => {
         <WriteIntroduction setDescription={setDescription} />
       </div>
       <div className="flex justify-end mr-3 w-full">
+        <EditorButton
+          text={save ? '저장완료' : '임시저장'}
+          color={save ? `bg-gray-400` : `bg-green-500 hover:bg-lime-500`}
+          onClick={() => {
+            setSave(true);
+            localStorage.setItem('save', JSON.stringify(dataObj));
+          }}
+          disabled={save}
+        />
         <EditorButton text="취소하기" color="bg-rose-500 hover:bg-red-600" onClick={setModalVisible} />
-        <EditorButton text="배포하기" type="submit" color="bg-blue-500 hover:bg-indigo-500" />
+        <EditorButton text="배포하기" color="bg-blue-500 hover:bg-indigo-500" />
       </div>
     </div>
   );
