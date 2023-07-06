@@ -8,7 +8,7 @@ const nextConfig = {
       {
         protocol: 'https',
         // hostname: "사용하고자 하는 image URL"
-        hostname: 'velog.velcdn.com',
+        hostname: 'cdn.sanity.io',
       },
       {
         protocol: 'https',
