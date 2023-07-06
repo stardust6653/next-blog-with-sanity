@@ -7,14 +7,16 @@ type Props = {
   color: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
-const EditorButton = ({ text, color, onClick, type = 'button' }: Props) => {
+const EditorButton = ({ text, color, onClick, type = 'button', disabled = false }: Props) => {
   return (
     <button
       type={type}
       className={`${color} ml-2 p-5 pt-3 pb-3 mt-5 rounded-lg text-amber-50 font-semibold transition ease-in-out delay-150 duration-300`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </button>
