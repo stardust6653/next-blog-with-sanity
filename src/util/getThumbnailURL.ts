@@ -6,7 +6,7 @@ export const getThumbnailURL = async (blob: File, callback: (url: string) => voi
   const formData = new FormData();
   formData.append('photo', blob);
 
-  await fetch('/api/posts/', { method: 'POST', body: formData })
+  await fetch('/api/imageConverter/', { method: 'POST', body: formData })
     .then((res) => res.json())
     .then((result) => callback(result.url));
 };
