@@ -2,6 +2,10 @@ import { createPost, getPost } from '../../../service/posts';
 import { NextRequest, NextResponse } from 'next/server';
 import { DataProps } from '../../../../types/data';
 
+export async function GET() {
+  return getPost().then((data) => NextResponse.json(data));
+}
+
 export async function POST(req: NextRequest) {
   const form = await req.formData();
 
