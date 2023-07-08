@@ -5,6 +5,8 @@ export default {
   fields: [
     {name: 'title', title: 'Title', type: 'string'},
     {name: 'content', title: 'Content', type: 'string'},
+    {name: 'imgUrl', title: 'ImgUrl', type: 'string'},
+    {name: 'description', title: 'Description', type: 'string'},
     {name: 'date', title: 'Date', type: 'string'},
     {
       name: 'likes',
