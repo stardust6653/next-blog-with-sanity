@@ -8,7 +8,7 @@ import NewPostList from '@/components/NewPostList';
 
 const Home = async () => {
   return (
-    <section className="flex flex-col justify-center items-center mt-8 w-full mb-10 ">
+    <section className="flex flex-col justify-center items-center mt-8 mb-10 ">
       <div className="flex justify-center md:w-10/12 lg:w-7/12 border-b border-solid border-gray-400">
         <div className="flex flex-col items-center w-80 pb-4 text-center">
           <h1 className="text-3xl mb-4">
@@ -36,27 +36,11 @@ const Home = async () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center">
-        <h2 className="text-4xl font-bold pt-8">New Post</h2>
-
-        <section className="grid grid-cols-4 gap-2">
+      <div className="w-[1440px] flex flex-col items-center ml-auto mr-auto">
+        <h2 className="text-4xl font-bold pt-8 text-center">New Posts</h2>
+        <section className="grid grid-cols-4 w-full ml-auto mr-auto">
           <NewPostList />
         </section>
-
-        {/* <div className="md:w-12/12 lg:w-9/12 xl:w-8/12 flex flex-wrap justify-center">
-          {data.slice(0, 8).map((item, i) => {
-            return (
-              <PostCard
-                key={i}
-                previewSrc={item.previewImg}
-                title={item.title}
-                description={item.description}
-                date={item.date}
-                id={String(item.id)}
-              />
-            );
-          })}
-        </div> */}
       </div>
     </section>
   );

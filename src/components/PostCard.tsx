@@ -15,13 +15,13 @@ interface CardProps {
 }
 
 const PostCard = ({ post }: any) => {
-  const { thumbnail, title, description, createdAt } = post;
+  const { thumbnail, title, description, createdAt, id } = post;
   // console.log(thumbnail, title, description, createdAt);
 
   return (
-    <>
-      <Link href={`/posts/${createdAt}`}>
-        <div className=" w-80 m-6 mt-10 hover:-translate-y-1 hover:shadow-md hover:duration-300">
+    <div className="flex justify-center">
+      <Link href={`/posts/${id}`}>
+        <div className="w-80 m-6 mt-10 hover:-translate-y-1 hover:shadow-md hover:duration-300">
           <Image
             src={thumbnail}
             alt={description}
@@ -37,7 +37,7 @@ const PostCard = ({ post }: any) => {
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 };
 

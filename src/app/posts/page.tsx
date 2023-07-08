@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 const page = async () => {
   return (
-    <>
+    <div className="w-[1440px] flex flex-col items-center ml-auto mr-auto">
       <h2 className="text-4xl font-bold pt-8 text-center">Posts</h2>
-      <section className="grid grid-cols-4 gap-2">
+      <section className="grid grid-cols-4 w-full ml-auto mr-auto">
         <PostList />
       </section>
-    </>
+    </div>
   );
 };
 
