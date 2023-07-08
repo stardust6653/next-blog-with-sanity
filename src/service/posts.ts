@@ -70,3 +70,18 @@ export async function getNewPosts() {
     }`
   );
 }
+
+export async function getDetailPost(id: string) {
+  return client.fetch(
+    `*[_type == "post" && _id == "${id}"]{
+      "title": title,
+      "content": content,
+      "likes": likes[] -> username,
+      "thumbnail" : imgUrl,
+      "comments": count(comments),
+      "id": _id,
+      "createdAt": _createdAt,
+      "description": description
+    }`
+  );
+}
