@@ -8,6 +8,7 @@ export default {
     {name: 'imgUrl', title: 'ImgUrl', type: 'string'},
     {name: 'description', title: 'Description', type: 'string'},
     {name: 'date', title: 'Date', type: 'string'},
+    {name: 'viewCount', title: 'ViewCount', type: 'number'},
     {
       name: 'likes',
       title: 'Likes',
