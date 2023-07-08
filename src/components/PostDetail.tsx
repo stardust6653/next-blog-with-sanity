@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import useSWR from 'swr';
 import MarkDownViewer from './viewer/MarkDownViewer';
 import Image from 'next/image';
 import { parseDate } from '@/util/date';
+import { viewCountUpdate } from '@/util/viewCountUpdate';
 
 type Props = {
   slug: string;
@@ -13,6 +14,10 @@ type Props = {
 const PostDetail = ({ params }: any) => {
   const id = params.slug;
   const { data: post, isLoading: loading, error } = useSWR(`/api/posts/${id}`);
+
+  useEffect(() => {
+    post && viewCountUpdate(post[0].id, post[0].viewCount);
+  }, [post]);
 
   return (
     <>
