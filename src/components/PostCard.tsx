@@ -36,10 +36,10 @@ const PostCard = ({ post }: any) => {
             <p className="text-base mt-2 h-24">{description}</p>
             <div className="flex justify-between items-center">
               <div className="flex text-sm items-center text-gray-700">
-                <ViewIcon />
-                <p className="ml-1">{viewCount}</p>
+                <ViewIcon size="text-xl" />
+                <p className="ml-1 font-medium">{viewCount}</p>
               </div>
-              <p className="font-semilight text-sm text-gray-700 text-right">{parseDate(createdAt)}</p>
+              <p className="font-semilight text-sm text-gray-700 font-medium">{parseDate(createdAt)}</p>
             </div>
           </div>
         </div>
