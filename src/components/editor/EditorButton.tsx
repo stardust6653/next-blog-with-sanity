@@ -6,7 +6,7 @@ type Props = {
   text: string;
   color: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
-  onClick?: () => void;
+  onClick?: any;
   disabled?: boolean;
 };
 
