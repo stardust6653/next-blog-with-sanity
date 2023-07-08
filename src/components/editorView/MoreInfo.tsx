@@ -6,6 +6,7 @@ import AddInfoImage from '../editor/AddInfoImage';
 import Thumbnail from '../editor/Thumbnail';
 import DeleteButton from '../editor/DeleteButton';
 import WriteIntroduction from '../editor/WriteIntroduction';
+import { postData } from '@/util/postData';
 
 export interface FileTypes {
   name: string;
@@ -68,7 +69,7 @@ const MoreInfo = ({ setModalVisible, title, content }: PropsTypes) => {
           disabled={save}
         />
         <EditorButton text="취소하기" color="bg-rose-500 hover:bg-red-600" onClick={setModalVisible} />
-        <EditorButton text="배포하기" color="bg-blue-500 hover:bg-indigo-500" />
+        <EditorButton text="배포하기" color="bg-blue-500 hover:bg-indigo-500" onClick={() => postData(dataObj)} />
       </div>
     </div>
   );
