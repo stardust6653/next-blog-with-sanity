@@ -7,6 +7,7 @@ import Thumbnail from '../editor/Thumbnail';
 import DeleteButton from '../editor/DeleteButton';
 import WriteIntroduction from '../editor/WriteIntroduction';
 import { postData } from '@/util/postData';
+import { useRouter } from 'next/navigation';
 
 export interface FileTypes {
   name: string;
@@ -33,6 +34,8 @@ interface DataProps {
 }
 
 const MoreInfo = ({ setModalVisible, title, content }: PropsTypes) => {
+  const router = useRouter();
+
   const [imgUrl, setImgUrl] = useState<string>('');
   const [visible, setVisible] = useState<boolean>(false);
   const [description, setDescription] = useState<string>('');
@@ -69,7 +72,14 @@ const MoreInfo = ({ setModalVisible, title, content }: PropsTypes) => {
           disabled={save}
         />
         <EditorButton text="취소하기" color="bg-rose-500 hover:bg-red-600" onClick={setModalVisible} />
-        <EditorButton text="배포하기" color="bg-blue-500 hover:bg-indigo-500" onClick={() => postData(dataObj)} />
+        <EditorButton
+          text="배포하기"
+          color="bg-blue-500 hover:bg-indigo-500"
+          onClick={() => {
+            postData(dataObj);
+            router.push('/posts');
+          }}
+        />
       </div>
     </div>
   );
