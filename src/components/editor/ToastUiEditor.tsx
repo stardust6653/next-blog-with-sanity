@@ -12,9 +12,9 @@ type Props = {
 
 const ToastUiEditor = ({ setContent, loadedContent }: Props) => {
   const editorRef = useRef<any>(null);
-  const [markdown, setMarkdown] = useState<any>('');
+  const [html, setHTML] = useState<any>('');
 
-  const content = editorRef.current?.getInstance().getMarkdown();
+  const content = editorRef.current?.getInstance().getHTML();
 
   editorRef.current?.getInstance().removeHook('addImageBlobHook');
   editorRef.current?.getInstance().addHook('addImageBlobHook', async (blob: File, callback: HookCallback) => {
@@ -23,16 +23,16 @@ const ToastUiEditor = ({ setContent, loadedContent }: Props) => {
   });
 
   useEffect(() => {
-    setMarkdown(() => {
-      editorRef.current?.getInstance().getMarkdown();
+    setHTML(() => {
+      editorRef.current?.getInstance().getHTML();
     });
-  }, [markdown, setMarkdown, content]);
+  }, [html, setHTML, content]);
 
   return loadedContent === '' ? (
     <>
       <Editor
         onChange={() => {
-          setMarkdown(content);
+          setHTML(content);
           setContent(content);
         }}
         placeholder="글을 적어주세요!"
@@ -50,7 +50,7 @@ const ToastUiEditor = ({ setContent, loadedContent }: Props) => {
       <Editor
         initialValue={loadedContent}
         onChange={() => {
-          setMarkdown(content);
+          setHTML(content);
           setContent(content);
         }}
         placeholder="글을 적어주세요!"
