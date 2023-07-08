@@ -36,6 +36,7 @@ export async function createPost(dataObj: DataProps) {
       description,
       likes: [],
       comments: [],
+      viewCount: 0,
     },
     { autoGenerateArrayKeys: true }
   );
@@ -51,7 +52,8 @@ export async function getPost() {
       "comments": count(comments),
       "id": _id,
       "createdAt": _createdAt,
-      "description": description
+      "description": description,
+      "viewCount": viewCount
     }`
   );
 }
@@ -66,7 +68,8 @@ export async function getNewPosts() {
       "comments": count(comments),
       "id": _id,
       "createdAt": _createdAt,
-      "description": description
+      "description": description,
+      "viewCount": viewCount
     }`
   );
 }
@@ -81,7 +84,15 @@ export async function getDetailPost(id: string) {
       "comments": count(comments),
       "id": _id,
       "createdAt": _createdAt,
-      "description": description
+      "description": description,
+      "viewCount": viewCount
     }`
   );
+}
+
+export async function increaseCount(id: string, currentCount: number) {
+  return client
+    .patch(id)
+    .set({ viewCount: currentCount + 1 })
+    .commit();
 }
