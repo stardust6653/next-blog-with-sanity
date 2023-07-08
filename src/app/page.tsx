@@ -1,9 +1,10 @@
 import React from 'react';
-import PostCard from '../components/home/PostCard';
+import PostCard from '../components/PostCard';
 import profile from '../../public/images/profile-photo.jpg';
 import Image from 'next/image';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { FiGithub } from 'react-icons/fi';
+import NewPostList from '@/components/NewPostList';
 
 const Home = async () => {
   return (
@@ -37,6 +38,11 @@ const Home = async () => {
 
       <div className="flex flex-col items-center">
         <h2 className="text-4xl font-bold pt-8">New Post</h2>
+
+        <section className="grid grid-cols-4 gap-2">
+          <NewPostList />
+        </section>
+
         {/* <div className="md:w-12/12 lg:w-9/12 xl:w-8/12 flex flex-wrap justify-center">
           {data.slice(0, 8).map((item, i) => {
             return (

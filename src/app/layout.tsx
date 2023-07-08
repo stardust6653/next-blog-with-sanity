@@ -26,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthContext>
           <SWRConfigContext>
             <Header />
-            <main>{children}</main>
+            <div className="flex flex-col items-center">
+              <main>{children}</main>
+            </div>
           </SWRConfigContext>
           <Footer />
         </AuthContext>

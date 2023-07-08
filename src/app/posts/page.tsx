@@ -1,6 +1,7 @@
 import React from 'react';
-import PostCard from '../../components/home/PostCard';
+import PostCard from '../../components/PostCard';
 import { Metadata } from 'next';
+import PostList from '../../components/PostList';
 
 export const metadata: Metadata = {
   title: 'All Posts',
@@ -8,28 +9,13 @@ export const metadata: Metadata = {
 };
 
 const page = async () => {
-  // const data = await getDescFilteredData();
-
   return (
-    <section className="flex justify-center mt-8 w-full mb-10">
-      {/* <div className="flex flex-col items-center">
-        <h2 className="text-4xl font-bold">Post</h2>
-        <div className="md:w-12/12 lg:w-9/12 xl:w-8/12 flex flex-wrap justify-center">
-          {data.map((item, i) => {
-            return (
-              <PostCard
-                key={i}
-                previewSrc={item.previewImg}
-                title={item.title}
-                description={item.description}
-                date={item.date}
-                id={String(item.id)}
-              />
-            );
-          })}
-        </div>
-      </div> */}
-    </section>
+    <>
+      <h2 className="text-4xl font-bold pt-8 text-center">Posts</h2>
+      <section className="grid grid-cols-4 gap-2">
+        <PostList />
+      </section>
+    </>
   );
 };
 
