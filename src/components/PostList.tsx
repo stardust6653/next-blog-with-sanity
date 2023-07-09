@@ -3,6 +3,7 @@
 import React from 'react';
 import useSWR from 'swr';
 import PostCard from './PostCard';
+import usePosts from '@/hooks/posts';
 
 interface CardProps {
   thumbnail?: string;
@@ -16,13 +17,21 @@ interface CardProps {
 }
 
 const PostList = () => {
-  const { data: posts, error } = useSWR<CardProps[]>('/api/posts/');
+  const { posts, isLoading: loading } = usePosts();
 
   return (
     <>
-      {posts?.map((post, index) => (
-        <PostCard key={index} post={post} />
-      ))}
+      {loading && <p>로딩중입니당</p>}
+
+      {posts && (
+        <ul className="grid grid-cols-4 w-full">
+          {posts?.map((post: CardProps, index: number) => (
+            <li key={post.id}>
+              <PostCard key={index} post={post} />
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 };
