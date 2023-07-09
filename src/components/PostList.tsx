@@ -3,7 +3,7 @@
 import React from 'react';
 import useSWR from 'swr';
 import PostCard from './PostCard';
-import usePosts from '@/hooks/posts';
+import usePosts from '../hooks/posts';
 
 interface CardProps {
   thumbnail?: string;

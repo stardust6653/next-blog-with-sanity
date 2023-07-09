@@ -2,7 +2,7 @@ import React from 'react';
 import PostCard from '../../components/PostCard';
 import { Metadata } from 'next';
 import PostList from '../../components/PostList';
-import PageTitle from '@/components/ui/PageTitle';
+import PageTitle from '../../components/ui/PageTitle';
 
 export const metadata: Metadata = {
   title: 'All Posts',

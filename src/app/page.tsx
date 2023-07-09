@@ -4,8 +4,8 @@ import profile from '../../public/images/profile-photo.jpg';
 import Image from 'next/image';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { FiGithub } from 'react-icons/fi';
-import NewPostList from '@/components/NewPostList';
-import PageTitle from '@/components/ui/PageTitle';
+import NewPostList from '../components/NewPostList';
+import PageTitle from '../components/ui/PageTitle';
 
 const Home = async () => {
   return (
@@ -39,7 +39,7 @@ const Home = async () => {
 
       <div className="w-[1440px] flex flex-col items-center ml-auto mr-auto">
         <PageTitle text="New Posts" />
-        <section className="grid grid-cols-4 w-full ml-auto mr-auto mb-10">
+        <section className="w-full ml-auto mr-auto">
           <NewPostList />
         </section>
       </div>

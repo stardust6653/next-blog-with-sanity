@@ -1,6 +1,6 @@
 'use client';
 
-import { CardProps } from '@/components/PostCard';
+import { CardProps } from '../components/PostCard';
 import useSWR, { useSWRConfig } from 'swr';
 
 type SimplePostProps = {

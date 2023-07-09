@@ -2,8 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import PostDetail from '@/components/PostDetail';
-import SideBar from '@/components/SideBar';
+import PostDetail from '../../..//components/PostDetail';
 
 interface Props {
   params: {

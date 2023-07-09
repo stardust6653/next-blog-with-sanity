@@ -7,7 +7,7 @@ import HeartIcon from './ui/icons/HeartIcon';
 import HeartFillIcon from './ui/icons/HeartFillIcon';
 import BookmarkFillIcon from './ui/icons/BookmarkFillIcon';
 import { useSession } from 'next-auth/react';
-import usePosts from '@/hooks/posts';
+import usePosts from '../hooks/posts';
 import ToggleButton from './ui/toggleButton';
 
 const SideBar = ({ post }: { post: any }) => {

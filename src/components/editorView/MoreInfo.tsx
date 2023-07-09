@@ -5,7 +5,7 @@ import AddInfoImage from '../editor/AddInfoImage';
 import Thumbnail from '../editor/Thumbnail';
 import DeleteButton from '../editor/DeleteButton';
 import WriteIntroduction from '../editor/WriteIntroduction';
-import { postData } from '@/util/postData';
+import { postData } from '../../util/postData';
 import { useRouter } from 'next/navigation';
 
 export interface FileTypes {

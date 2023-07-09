@@ -1,4 +1,4 @@
-import { increaseCount } from '@/service/posts';
+import { increaseCount } from '../../../service/posts';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function PUT(req: NextRequest) {

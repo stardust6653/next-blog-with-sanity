@@ -2,12 +2,12 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { parseDate } from '@/util/date';
+import { parseDate } from '../util/date';
 import SideBar from './SideBar';
 import dynamic from 'next/dynamic';
-import usePosts from '@/hooks/posts';
+import usePosts from '../hooks/posts';
 import { CardProps } from './PostCard';
-import { viewCountUpdate } from '@/util/viewCountUpdate';
+import { viewCountUpdate } from '../util/viewCountUpdate';
 
 const MarkDownViewer = dynamic(() => import('./viewer/MarkDownViewer'), {
   ssr: false,

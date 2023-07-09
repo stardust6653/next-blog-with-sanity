@@ -4,7 +4,7 @@ import Header from '../components/common/Header';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
 import AuthContext from '../context/AuthContext';
-import SWRConfigContext from '@/context/SWRConfigContext';
+import SWRConfigContext from '../context/SWRConfigContext';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 
