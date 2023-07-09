@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { BsPlusSquare } from 'react-icons/bs';
+import React, { useState } from 'react';
 import EditorButton from '../editor/EditorButton';
 import { getThumbnailURL } from '../../util/getThumbnailURL';
 import AddInfoImage from '../editor/AddInfoImage';
