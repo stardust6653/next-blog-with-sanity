@@ -6,6 +6,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import useSWR from 'swr';
 import Button from './ui/Button';
 import Avatar from './Avatar';
+import { useMe } from '@/hooks/bookmarks';
 
 type Props = {
   name: string;
@@ -18,10 +19,8 @@ const menu: Props[] = [
 ];
 
 const Navbar = () => {
-  const { data, error, isLoading } = useSWR('/api/ownership');
-  const ownership = data?.[1];
-  const { data: session } = useSession();
-  const user = session?.user;
+  const { user } = useMe();
+  const ownership = user?.owner;
 
   return (
     <nav>
@@ -34,7 +33,7 @@ const Navbar = () => {
           );
         })}
 
-        {session ? (
+        {user ? (
           <>
             {ownership && (
               <li key="Create" className="text-gray-300 ml-8 hover:text-yellow-500">
