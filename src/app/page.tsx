@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { FiGithub } from 'react-icons/fi';
 import NewPostList from '@/components/NewPostList';
+import PageTitle from '@/components/ui/PageTitle';
 
 const Home = async () => {
   return (
@@ -37,8 +38,8 @@ const Home = async () => {
       </div>
 
       <div className="w-[1440px] flex flex-col items-center ml-auto mr-auto">
-        <h2 className="text-4xl font-bold pt-8 text-center">New Posts</h2>
-        <section className="grid grid-cols-4 w-full ml-auto mr-auto">
+        <PageTitle text="New Posts" />
+        <section className="grid grid-cols-4 w-full ml-auto mr-auto mb-10">
           <NewPostList />
         </section>
       </div>
