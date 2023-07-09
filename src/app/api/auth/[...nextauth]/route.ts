@@ -1,6 +1,5 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import GitHubProvider from 'next-auth/providers/github';
 import KakaoProvider from 'next-auth/providers/kakao';
 import { addUser } from '../../../../service/user';
 
