@@ -3,10 +3,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import PostDetail from '@/components/PostDetail';
-
-const MarkDownViewer = dynamic(() => import('../../../components/viewer/MarkDownViewer'), {
-  ssr: false,
-});
+import SideBar from '@/components/SideBar';
 
 interface Props {
   params: {
@@ -26,9 +23,11 @@ interface Props {
 
 const DetailPage = async ({ params }: Props) => {
   return (
-    <div className="flex justify-center overflow-scroll w-[100]">
-      <PostDetail params={params} />
-    </div>
+    <>
+      <div className="relative flex justify-center overflow-scroll w-full">
+        <PostDetail params={params} />
+      </div>
+    </>
   );
 };
 
