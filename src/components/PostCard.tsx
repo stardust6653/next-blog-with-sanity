@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ViewIcon from './ui/icons/ViewIcon';
+import HeartIcon from './ui/icons/HeartIcon';
 
 export interface CardProps {
   thumbnail: string;
@@ -17,7 +18,7 @@ export interface CardProps {
 }
 
 const PostCard = ({ post }: any) => {
-  const { thumbnail, title, description, createdAt, id, viewCount } = post;
+  const { thumbnail, title, description, createdAt, id, viewCount, likes } = post;
 
   return (
     <div className="flex justify-center">
@@ -38,6 +39,8 @@ const PostCard = ({ post }: any) => {
               <div className="flex text-sm items-center text-gray-700">
                 <ViewIcon size="text-xl" />
                 <p className="ml-1 font-medium">{viewCount}</p>
+                <HeartIcon size="ml-2 text-base" />
+                <p className="ml-1 font-medium">{likes?.length ?? 0}</p>
               </div>
               <p className="font-semilight text-sm text-gray-700 font-medium">{parseDate(createdAt)}</p>
             </div>
