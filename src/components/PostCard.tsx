@@ -4,16 +4,16 @@ import Link from 'next/link';
 import React from 'react';
 import ViewIcon from './ui/icons/ViewIcon';
 
-interface CardProps {
-  thumbnail?: string;
-  comments?: number;
-  content?: string;
-  createdAt?: string;
-  id?: string;
-  likes?: string[];
-  title?: string;
-  description?: string;
-  viewCount?: number;
+export interface CardProps {
+  thumbnail: string;
+  comments: number;
+  content: string;
+  createdAt: string;
+  id: string;
+  likes: string[];
+  title: string;
+  description: string;
+  viewCount: number;
 }
 
 const PostCard = ({ post }: any) => {
