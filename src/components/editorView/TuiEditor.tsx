@@ -10,6 +10,7 @@ import ToastUiEditor from '../editor/ToastUiEditor';
 import EditorButton from '../editor/EditorButton';
 import useSWR from 'swr';
 import { redirect, useRouter } from 'next/navigation';
+import Loader from '../ui/Loader';
 
 type LoadedDataProps = {
   title: string;
@@ -19,7 +20,7 @@ type LoadedDataProps = {
 };
 
 const TuiEditor = () => {
-  const { data, error, isLoading } = useSWR('/api/ownership');
+  const { data, isLoading, error } = useSWR('/api/ownership');
   const ownership = data?.[1];
 
   const [title, setTitle] = useState<string>('');

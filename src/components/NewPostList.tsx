@@ -3,6 +3,7 @@
 import React from 'react';
 import useSWR from 'swr';
 import PostCard from './PostCard';
+import Loader from './ui/Loader';
 
 interface CardProps {
   thumbnail?: string;
@@ -19,8 +20,8 @@ const NewPostList = () => {
   const { data: posts, isLoading: loading, error } = useSWR<CardProps[]>('/api/newPosts/');
 
   return (
-    <>
-      {loading && <p>로딩중입니당</p>}
+    <div className="w-[1440px]">
+      {loading && <Loader />}
 
       {posts && (
         <ul className="grid grid-cols-4 w-full">
@@ -31,7 +32,7 @@ const NewPostList = () => {
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 export default NewPostList;
