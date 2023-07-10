@@ -8,7 +8,7 @@ import HeartFillIcon from './ui/icons/HeartFillIcon';
 import BookmarkFillIcon from './ui/icons/BookmarkFillIcon';
 import usePosts from '../hooks/posts';
 import ToggleButton from './ui/ToggleButton';
-import { useMe } from '@/hooks/bookmarks';
+import { useMe } from '../hooks/bookmarks';
 
 const SideBar = ({ post }: { post: any }) => {
   const { setLike } = usePosts();
@@ -17,7 +17,7 @@ const SideBar = ({ post }: { post: any }) => {
   const likes = post?.likes;
 
   const liked = user ? likes?.includes(user.username) : false;
-  const bookmarked = user?.bookmarks.includes(post.id) ?? false;
+  const bookmarked = user?.bookmarks?.includes(post.id) ?? false;
 
   const handleLike = (like: boolean) => {
     user && setLike(post, user.username, like);
