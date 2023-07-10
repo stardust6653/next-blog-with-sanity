@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import usePosts from '../hooks/posts';
 import { CardProps } from './PostCard';
 import { viewCountUpdate } from '../util/viewCountUpdate';
+import Loader from './ui/Loader';
 
 const MarkDownViewer = dynamic(() => import('./viewer/MarkDownViewer'), {
   ssr: false,
@@ -30,18 +31,20 @@ const PostDetail = ({ params }: Props): any => {
       return arrayPosts.filter((item: CardProps) => item.id === id)[0];
     };
 
-    viewCountUpdate(post().id, post().viewCount);
+    viewCountUpdate(post()?.id, post().viewCount);
+
+    console.log(post());
 
     return (
       <>
-        {loading && <p>로딩 중입니당</p>}
+        {loading && <Loader />}
 
         {post() && (
           <article className="sm: w-11/12 m-5 xl:w-7/12 mt-12 mb-12 relative">
             <SideBar post={post()} />
             <div>
               <h1 className="sm: text-3xl xl:text-5xl font-bold mb-6">{post()?.title}</h1>
-              <p className="mb-4 text-end">{parseDate(post()?.createdAt)}</p>
+              <p className="mb-4 text-end">{parseDate(post()?.date)}</p>
               <Image
                 src={post()?.thumbnail}
                 alt=""
