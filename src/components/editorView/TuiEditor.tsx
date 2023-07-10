@@ -42,50 +42,44 @@ const TuiEditor = () => {
 
   return (
     <>
-      {ownership ? (
-        <>
-          {modalVisiable ? (
-            <MoreInfo setModalVisible={() => setModalVisible(false)} title={title} content={content} />
-          ) : (
-            <>
-              <form
-                className="w-[95%]"
-                onSubmit={(event) => {
-                  event.preventDefault();
-                }}
-              >
-                <TitleInput setTitle={setTitle} loadedTitle={loadedTitle} />
-                <ToastUiEditor setContent={setContent} loadedContent={loadedContent} />
-
-                <div className="flex justify-end mr-3">
-                  <EditorButton
-                    text="불러오기"
-                    color={localStorage.getItem('save') ? 'bg-green-500 hover:bg-lime-500' : 'pointer-events-none'}
-                    onClick={() => {
-                      loadData();
-                    }}
-                  />
-                  <EditorButton
-                    text="취소하기"
-                    color="bg-rose-500 hover:bg-red-600"
-                    onClick={() => {
-                      router.push('/');
-                    }}
-                  />
-                  <EditorButton
-                    text="출간하기"
-                    color="bg-blue-500 hover:bg-indigo-500"
-                    onClick={() => {
-                      setModalVisible(true);
-                    }}
-                  />
-                </div>
-              </form>
-            </>
-          )}
-        </>
+      {modalVisiable ? (
+        <MoreInfo setModalVisible={() => setModalVisible(false)} title={title} content={content} />
       ) : (
-        <>{redirect('/')}</>
+        <>
+          <form
+            className="w-[95%]"
+            onSubmit={(event) => {
+              event.preventDefault();
+            }}
+          >
+            <TitleInput setTitle={setTitle} loadedTitle={loadedTitle} />
+            <ToastUiEditor setContent={setContent} loadedContent={loadedContent} />
+
+            <div className="flex justify-end mr-3">
+              <EditorButton
+                text="불러오기"
+                color={localStorage.getItem('save') ? 'bg-green-500 hover:bg-lime-500' : 'pointer-events-none'}
+                onClick={() => {
+                  loadData();
+                }}
+              />
+              <EditorButton
+                text="취소하기"
+                color="bg-rose-500 hover:bg-red-600"
+                onClick={() => {
+                  router.push('/');
+                }}
+              />
+              <EditorButton
+                text="출간하기"
+                color="bg-blue-500 hover:bg-indigo-500"
+                onClick={() => {
+                  setModalVisible(true);
+                }}
+              />
+            </div>
+          </form>
+        </>
       )}
     </>
   );
