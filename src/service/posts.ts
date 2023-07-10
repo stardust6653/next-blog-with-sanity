@@ -12,7 +12,8 @@ const PostProjection = `
 "id": _id,
 "createdAt": _createdAt,
 "description": description,
-"viewCount": viewCount
+"viewCount": viewCount,
+"date": date
 `;
 
 export async function createImageURL(photo: Blob) {
@@ -50,6 +51,7 @@ export async function createPost(dataObj: DataProps) {
       likes: [],
       comments: [],
       viewCount: 0,
+      date: new Date(),
     },
     { autoGenerateArrayKeys: true }
   );
@@ -57,7 +59,7 @@ export async function createPost(dataObj: DataProps) {
 
 export async function getPost() {
   return client.fetch(
-    `*[_type == "post"] | order(_createdAt desc){
+    `*[_type == "post"] | order(date desc){
       ${PostProjection}
     }`
   );
@@ -65,7 +67,7 @@ export async function getPost() {
 
 export async function getNewPosts() {
   return client.fetch(
-    `*[_type == "post"] | order(_createdAt desc) [0...8]{
+    `*[_type == "post"] | order(date desc) [0...8]{
       ${PostProjection}
     }`
   );
@@ -116,7 +118,7 @@ const mapPosts = (posts: CardProps[]) => {
 export async function getBookmarkList(username: string) {
   return client.fetch(
     `*[_type == "post" && _id in *[_type == "user" && username == "${username}"].bookmarks[]._ref ]
-  | order(_createdAt desc){
+  | order(date desc){
     ${PostProjection}
   }
   `
@@ -125,7 +127,7 @@ export async function getBookmarkList(username: string) {
 
 export async function searchPosts(keyword?: string) {
   const query = keyword ? `&& (title match "${keyword}*")` : '';
-  return client.fetch(`*[_type == "post" ${query}] | order(_createdAt desc){
+  return client.fetch(`*[_type == "post" ${query}] | order(date desc){
     ${PostProjection}
   }`);
 }
