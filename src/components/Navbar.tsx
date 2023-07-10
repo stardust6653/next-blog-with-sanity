@@ -40,6 +40,9 @@ const Navbar = () => {
                 <Link href="/editor">Editor</Link>
               </li>
             )}
+            <li key="Bookmarks" className="text-gray-300 ml-8 hover:text-yellow-500">
+              <Link href={`/bookmarks/${user.id}`}>Bookmarks</Link>
+            </li>
             <li>
               <Button text="Log Out" onClick={() => signOut()} />
             </li>
