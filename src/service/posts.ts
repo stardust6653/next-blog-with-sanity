@@ -1,6 +1,7 @@
 import { title } from 'process';
 import { DataProps } from '../../types/data';
 import { assetsURL, client } from './sanity';
+import { CardProps } from '@/components/PostCard';
 
 export async function createImageURL(photo: Blob) {
   return fetch(assetsURL, {
@@ -115,4 +116,29 @@ export async function dislikePost(postId: string, userId: string) {
     .patch(postId)
     .unset([`likes[_ref == "${userId}"]`])
     .commit();
+}
+
+const mapPosts = (posts: CardProps[]) => {
+  return posts.map((post: CardProps) => ({
+    ...post,
+    likes: post.likes ?? [],
+  }));
+};
+
+export async function getBookmarkList(username: string) {
+  return client.fetch(
+    `*[_type == "post" && _id in *[_type == "user" && username == "${username}"].bookmarks[]._ref ]
+  | order(_createdAt desc){
+    "title": title,
+    "content": content,
+    "likes": likes[] -> username,
+    "thumbnail" : imgUrl,
+    "comments": count(comments),
+    "id": _id,
+    "createdAt": _createdAt,
+    "description": description,
+    "viewCount": viewCount
+  }
+  `
+  );
 }

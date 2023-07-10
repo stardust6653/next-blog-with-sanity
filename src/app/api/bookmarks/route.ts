@@ -19,8 +19,6 @@ export const PUT = async (req: NextRequest) => {
 
   const request = bookmark ? addBookmark : removeBookmark;
 
-  console.log(id, user.id, bookmark);
-
   return request(user.id, id) //
     .then((res) => NextResponse.json(res))
     .catch((error) => new Response(JSON.stringify(error), { status: 500 }));
