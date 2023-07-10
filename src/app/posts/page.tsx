@@ -11,11 +11,9 @@ export const metadata: Metadata = {
 
 const page = async () => {
   return (
-    <div className="w-[1440px] flex flex-col items-center ml-auto mr-auto">
+    <div className="flex flex-col items-center relative justify-center ">
       <PageTitle text="Posts" />
-      <section className="w-full ml-auto mr-auto">
-        <PostList />
-      </section>
+      <PostList />
     </div>
   );
 };

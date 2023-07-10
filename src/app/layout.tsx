@@ -21,12 +21,14 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={sans.className}>
-      <body>
+    <html lang="ko" className={`${sans.className} h-full`}>
+      <body className="h-[calc(100vh-104px)]">
         <AuthContext>
           <SWRConfigContext>
-            <Header />
-            <main>{children}</main>
+            <div className="min-h-full relative ">
+              <Header />
+              <main>{children}</main>
+            </div>
           </SWRConfigContext>
           <Footer />
         </AuthContext>

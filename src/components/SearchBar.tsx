@@ -9,7 +9,7 @@ type Props = {
 const SearchBar = ({ onSubmit, setKeyword, keyword }: Props) => {
   return (
     <>
-      <form onSubmit={onSubmit} className="pr-[30px] flex justify-end">
+      <form onSubmit={onSubmit} className="pr-[30px] flex justify-end mb-5">
         <input
           type="text"
           className="w-[480px] h-8 p-5 outline-none rounded-lg  border border-gray-400 focus:border-gray-900"

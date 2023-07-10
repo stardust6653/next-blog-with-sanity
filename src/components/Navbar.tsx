@@ -6,7 +6,7 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 import useSWR from 'swr';
 import Button from './ui/Button';
 import Avatar from './Avatar';
-import { useMe } from '@/hooks/bookmarks';
+import { useMe } from '../hooks/bookmarks';
 
 type Props = {
   name: string;
