@@ -15,10 +15,11 @@ export interface CardProps {
   title: string;
   description: string;
   viewCount: number;
+  date: string;
 }
 
 const PostCard = ({ post }: any) => {
-  const { thumbnail, title, description, createdAt, id, viewCount, likes } = post;
+  const { thumbnail, title, description, createdAt, id, viewCount, likes, date } = post;
 
   return (
     <div className="flex justify-center">
@@ -42,7 +43,7 @@ const PostCard = ({ post }: any) => {
                 <HeartIcon size="ml-2 text-base" />
                 <p className="ml-1 font-medium">{likes?.length ?? 0}</p>
               </div>
-              <p className="font-semilight text-sm text-gray-700 font-medium">{parseDate(createdAt)}</p>
+              <p className="font-semilight text-sm text-gray-700 font-medium">{parseDate(date)}</p>
             </div>
           </div>
         </div>
