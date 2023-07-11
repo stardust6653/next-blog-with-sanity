@@ -3,6 +3,13 @@ import { DataProps } from '../../types/data';
 import { assetsURL, client } from './sanity';
 import { CardProps } from '../components/PostCard';
 
+const SimplePostProjection = `
+"title": title,
+"thumbnail" : imgUrl,
+"id": _id,
+"description": description,
+"date": date`;
+
 const PostProjection = `
 "title": title,
 "content": content,
@@ -68,7 +75,7 @@ export async function getPost() {
 export async function getNewPosts() {
   return client.fetch(
     `*[_type == "post"] | order(date desc) [0...8]{
-      ${PostProjection}
+      ${SimplePostProjection}
     }`
   );
 }

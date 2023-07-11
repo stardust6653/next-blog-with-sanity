@@ -2,22 +2,21 @@
 
 import React from 'react';
 import useSWR from 'swr';
-import PostCard from './PostCard';
 import Loader from './ui/Loader';
+import NewPostCard from './NewPostCard';
 
-interface CardProps {
-  thumbnail?: string;
-  comments?: number;
-  content?: string;
+interface SimpleCardProps {
+  thumbnail: string;
   createdAt?: string;
   id?: string;
-  likes?: string[];
   title?: string;
   description?: string;
 }
 
 const NewPostList = () => {
-  const { data: posts, isLoading: loading, error } = useSWR<CardProps[]>('/api/newPosts/');
+  const { data: posts, isLoading: loading, error } = useSWR<SimpleCardProps[]>('/api/newPosts/');
+
+  console.log(posts, 'newpostlist');
 
   return (
     <div className="w-[1440px]">
@@ -25,9 +24,9 @@ const NewPostList = () => {
 
       {posts && (
         <ul className="grid grid-cols-4 w-full">
-          {posts?.map((post: CardProps, index: number) => (
+          {posts?.map((post: SimpleCardProps, index: number) => (
             <li key={post.id}>
-              <PostCard key={index} post={post} />
+              <NewPostCard key={index} post={post} />
             </li>
           ))}
         </ul>
