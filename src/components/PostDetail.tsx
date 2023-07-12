@@ -9,6 +9,7 @@ import usePosts from '../hooks/posts';
 import { CardProps } from './PostCard';
 import { viewCountUpdate } from '../util/viewCountUpdate';
 import Loader from './ui/Loader';
+import { useMe } from '../hooks/bookmarks';
 
 const MarkDownViewer = dynamic(() => import('./viewer/MarkDownViewer'), {
   ssr: false,
@@ -23,6 +24,8 @@ type Props = {
 const PostDetail = ({ params }: Props): any => {
   const id = params.slug;
   const { posts, isLoading: loading } = usePosts();
+  const { user } = useMe();
+  const ownership = user?.owner;
 
   if (posts !== undefined) {
     const arrayPosts: CardProps[] = Array.from(posts);
@@ -31,7 +34,9 @@ const PostDetail = ({ params }: Props): any => {
       return arrayPosts.filter((item: CardProps) => item.id === id)[0];
     };
 
-    viewCountUpdate(post()?.id, post().viewCount);
+    if (!ownership) {
+      viewCountUpdate(post()?.id, post().viewCount);
+    }
 
     return (
       <>
