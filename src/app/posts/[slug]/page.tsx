@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import PostDetail from '../../..//components/PostDetail';
+import { getDetailPost } from '../../../service/posts';
 
 interface Props {
   params: {
@@ -10,17 +11,18 @@ interface Props {
   };
 }
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const data = await getDescFilteredData();
-//   const currentData = data.filter((item) => String(item.id) === params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = await getDetailPost(params.slug);
 
-//   return {
-//     title: currentData[0].title,
-//     description: currentData[0].description,
-//   };
-// }
+  return {
+    title: post[0]?.title,
+    description: post[0]?.description,
+  };
+}
 
 const DetailPage = async ({ params }: Props) => {
+  const post = await getDetailPost(params.slug);
+  console.log(post.title);
   return (
     <>
       <div className="relative flex justify-center overflow-scroll w-full">

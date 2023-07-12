@@ -33,8 +33,6 @@ const PostDetail = ({ params }: Props): any => {
 
     viewCountUpdate(post()?.id, post().viewCount);
 
-    console.log(post());
-
     return (
       <>
         {loading && <Loader />}
