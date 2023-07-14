@@ -46,7 +46,7 @@ const PostDetail = ({ params }: Props): any => {
           <article className="m-5 mt-12 mb-12 relative xs:w-[90%] sm:w-[60%] lg:w-[50%]">
             <SideBar post={post()} />
             <div>
-              <h1 className="sm: text-3xl xl:text-5xl font-bold mb-6">{post()?.title}</h1>
+              <h1 className="sm: text-3xl lg:text-4xl font-bold mb-6">{post()?.title}</h1>
               <p className="mb-4 text-end">{parseDate(post()?.date)}</p>
               <Image
                 src={post()?.thumbnail}
