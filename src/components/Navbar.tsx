@@ -23,7 +23,7 @@ const Navbar = () => {
   const ownership = user?.owner;
 
   return (
-    <nav>
+    <nav className="hidden sm:flex">
       <ul className="flex text-base">
         {menu.map((item) => {
           return (

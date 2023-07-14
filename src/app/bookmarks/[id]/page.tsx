@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const page = async () => {
   return (
-    <div className="w-[1440px] flex flex-col items-center ml-auto mr-auto">
+    <div className="w-[90%] lg:w-[1440px] flex flex-col items-center ml-auto mr-auto">
       <PageTitle text="Bookmarks" />
       <section className="w-full ml-auto mr-auto">
         <BookmarkList />

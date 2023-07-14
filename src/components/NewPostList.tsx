@@ -19,11 +19,11 @@ const NewPostList = () => {
   console.log(posts, 'newpostlist');
 
   return (
-    <div className="w-[1440px]">
+    <div className="lg:w-[1440px] md:w-[90%]">
       {loading && <Loader />}
 
       {posts && (
-        <ul className="grid grid-cols-4 w-full">
+        <ul className="grid grid-cols-1 w-full lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
           {posts?.map((post: SimpleCardProps, index: number) => (
             <li key={post.id}>
               <NewPostCard key={index} post={post} />

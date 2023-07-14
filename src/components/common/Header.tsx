@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Navbar from '../Navbar';
+import DropboxMenu from '../DropboxMenu';
 
 type Props = {
   name: string;
@@ -16,13 +17,14 @@ const menu: Props[] = [
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 flex justify-around items-center pl-2 pr-2 pt-5 pb-5">
-      <h1 className="text-gray-300 md:text-xl lg:text-2xl font-bold">
+    <header className="relative bg-gray-800 flex justify-between items-center px-6 py-5 sm:justify-around sm:px-2">
+      <h1 className="text-gray-300 text-3xl sm:text-2xl font-bold">
         <Link href="/">
           <span className="text-yellow-500">Soyeah</span> Blog
         </Link>
       </h1>
       <Navbar />
+      <DropboxMenu />
     </header>
   );
 };

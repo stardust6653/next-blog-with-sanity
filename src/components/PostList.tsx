@@ -29,11 +29,11 @@ const PostList = () => {
   };
 
   return (
-    <div className="w-[1440px]">
+    <div className="lg:w-[1440px] md:w-[90%]">
       <SearchBar onSubmit={onSubmit} setKeyword={setKeyword} keyword={keyword} />
 
       {posts && (
-        <ul className="grid grid-cols-4 w-full">
+        <ul className="grid grid-cols-1 w-full lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
           {posts?.map((post: CardProps, index: number) => (
             <li key={post.id}>
               <PostCard key={index} post={post} />
