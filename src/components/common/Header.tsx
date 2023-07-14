@@ -20,7 +20,10 @@ const Header = () => {
     <header className="relative bg-gray-800 flex justify-between items-center px-6 py-5 sm:justify-around sm:px-2">
       <h1 className="text-gray-300 text-3xl sm:text-2xl font-bold">
         <Link href="/">
-          <span className="text-yellow-500">Soyeah</span> Blog
+          <span select-none className="text-yellow-500 ">
+            Soyeah
+          </span>
+          Blog
         </Link>
       </h1>
       <Navbar />

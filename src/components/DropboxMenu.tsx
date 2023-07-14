@@ -28,6 +28,7 @@ const DropboxMenu = () => {
   return (
     <div className="sm:hidden text-white text-3xl">
       <GiHamburgerMenu
+        className="cursor-pointer"
         onClick={() => {
           setModal((prev) => !prev);
         }}

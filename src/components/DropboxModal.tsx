@@ -99,7 +99,7 @@ const DropboxModal = ({ setModal, modal }: any) => {
               로그인을 해주세요.
             </div>
             <AiOutlineClose
-              className="hover:text-yellow-500"
+              className="cursor-pointer hover:text-yellow-500"
               onClick={() => {
                 setModal(false);
               }}
