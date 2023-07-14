@@ -40,7 +40,6 @@ export const getUserByUsername = async (username: string) => {
 };
 
 export const addBookmark = async (userId: string, postId: string) => {
-  console.log(postId, userId);
   return client
     .patch(userId)
     .setIfMissing({ bookmarks: [] })

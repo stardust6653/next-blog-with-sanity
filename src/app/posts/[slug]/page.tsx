@@ -22,7 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const DetailPage = async ({ params }: Props) => {
   const post = await getDetailPost(params.slug);
-  console.log(post.title);
   return (
     <>
       <div className="relative flex justify-center overflow-scroll w-full">

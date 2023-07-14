@@ -94,7 +94,6 @@ const DropboxModal = ({ setModal, modal }: any) => {
             <div
               onClick={() => {
                 signIn();
-                console.log(modal);
               }}
             >
               로그인을 해주세요.

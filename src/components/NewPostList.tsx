@@ -16,8 +16,6 @@ interface SimpleCardProps {
 const NewPostList = () => {
   const { data: posts, isLoading: loading, error } = useSWR<SimpleCardProps[]>('/api/newPosts/');
 
-  console.log(posts, 'newpostlist');
-
   return (
     <div className="lg:w-[1440px] md:w-[90%]">
       {loading && <Loader />}

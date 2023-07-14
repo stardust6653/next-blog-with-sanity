@@ -17,7 +17,6 @@ const SearchBar = ({ onSubmit, setKeyword, keyword }: Props) => {
           placeholder="제목을 입력해주세요!"
           value={keyword}
           onChange={(e) => {
-            console.log(e.target.value);
             setKeyword(e.target.value);
           }}
         />
