@@ -38,7 +38,12 @@ const DropboxModal = ({ setModal, modal }: any) => {
               {menu.map((item) => {
                 return (
                   <li key={item.name} className="text-gray-300 ml-8 hover:text-yellow-500 mb-2">
-                    <Link onClick={() => {}} href={item.href}>
+                    <Link
+                      onClick={() => {
+                        setModal(false);
+                      }}
+                      href={item.href}
+                    >
                       {item.name}
                     </Link>
                   </li>
@@ -108,7 +113,6 @@ const DropboxModal = ({ setModal, modal }: any) => {
                   <li key={item.name} className="text-gray-300 ml-8 hover:text-yellow-500 mb-2">
                     <Link
                       onClick={() => {
-                        console.log(modal);
                         setModal(false);
                       }}
                       href={item.href}
@@ -124,6 +128,7 @@ const DropboxModal = ({ setModal, modal }: any) => {
                   text="Log In"
                   onClick={() => {
                     signIn();
+                    setModal(false);
                   }}
                 />
               </li>
