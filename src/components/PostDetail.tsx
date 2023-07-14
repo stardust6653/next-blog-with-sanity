@@ -43,7 +43,7 @@ const PostDetail = ({ params }: Props): any => {
         {loading && <Loader />}
 
         {post() && (
-          <article className="sm: w-11/12 m-5 xl:w-7/12 mt-12 mb-12 relative">
+          <article className="m-5 mt-12 mb-12 relative xs:w-[90%] sm:w-[60%] lg:w-[50%]">
             <SideBar post={post()} />
             <div>
               <h1 className="sm: text-3xl xl:text-5xl font-bold mb-6">{post()?.title}</h1>
