@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Footer from '../components/common/Footer';
 import Header from '../components/common/Header';
 import './globals.css';
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </SWRConfigContext>
           <Footer />
         </AuthContext>
+        <Analytics />
       </body>
     </html>
   );
