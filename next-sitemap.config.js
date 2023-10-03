@@ -9,5 +9,7 @@ module.exports = {
     'https://www.soyeah-blog.xyz/auth',
     'https://www.soyeah-blog.xyz/bookmarks',
     'https://www.soyeah-blog.xyz/editor',
+    'https://soyeah-blog.xyz/editor',
+    'https://soyeah-blog.xyz/api/search',
   ],
 };
