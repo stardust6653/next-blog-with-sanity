@@ -55,9 +55,9 @@ const Navbar = () => {
         {user && (
           <>
             <li>
-              <Link href={`/user/${user.id}`}>
-                <Avatar image={user.image} />
-              </Link>
+              {/* <Link href={`/user/${user.id}`}> */}
+              <Avatar image={user.image} />
+              {/* </Link> */}
             </li>
           </>
         )}
