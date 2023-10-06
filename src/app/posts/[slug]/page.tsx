@@ -1,10 +1,9 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import Image from 'next/image';
+import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import PostDetail from '../../..//components/PostDetail';
 import { getDetailPost } from '../../../service/posts';
 import Head from 'next/head';
+import Loader from '@/components/ui/Loader';
 
 interface Props {
   params: {
@@ -16,20 +15,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getDetailPost(params.slug);
 
   return {
+    title: post[0]?.title,
     openGraph: {
       title: post[0]?.title,
       description: post[0]?.description,
-      url: `https://www.soyeah-blog.xyz/posts/${post[0]?.id}`,
-      siteName: 'Soyeah Blog(박소예의 개발 블로그)',
       images: [
         {
           url: post[0]?.thumbnail,
-          width: 800,
-          height: 600,
         },
       ],
-      locale: 'ko_KR',
-      type: 'website',
+    },
+    twitter: {
+      title: post[0]?.title,
+      description: post[0]?.description,
+      images: [
+        {
+          url: post[0]?.thumbnail,
+        },
+      ],
     },
   };
 }
@@ -39,9 +42,11 @@ const DetailPage = async ({ params }: Props) => {
 
   return (
     <>
-      <div className="relative flex justify-center overflow-scroll w-full">
-        <PostDetail params={params} />
-      </div>
+      <Suspense fallback={<Loader />}>
+        <div className="relative flex justify-center overflow-scroll w-full">
+          <PostDetail params={params} />
+        </div>
+      </Suspense>
     </>
   );
 };
