@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getDetailPost(params.slug);
 
   return {
+    title: post[0]?.title,
     openGraph: {
       title: post[0]?.title,
       description: post[0]?.description,
@@ -39,7 +40,8 @@ const DetailPage = async ({ params }: Props) => {
 
   return (
     <>
-      <head>
+      <Head>
+        <title>{`Soyeah Blog | ${post[0]?.title}`}</title>
         <meta property="og:title" content={post[0]?.title} />
         <meta property="og:description" content={post[0]?.description} />
         <meta property="og:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
@@ -57,7 +59,7 @@ const DetailPage = async ({ params }: Props) => {
           name="twitter:image"
           content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
         />
-      </head>
+      </Head>
       <div className="relative flex justify-center overflow-scroll w-full">
         <PostDetail params={params} />
       </div>

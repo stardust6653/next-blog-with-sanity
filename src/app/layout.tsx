@@ -7,10 +7,15 @@ import { Open_Sans } from 'next/font/google';
 import AuthContext from '../context/AuthContext';
 import SWRConfigContext from '../context/SWRConfigContext';
 import Head from 'next/head';
+import { Metadata } from 'next';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 
-export const metadata = {
+export const metadata: Metadata = {
+  title: {
+    default: 'Soyeah Blog',
+    template: 'Soyeah Blog | %s',
+  },
   openGraph: {
     title: {
       default: 'Soyeah Blog',
