@@ -39,10 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: {
-      default: 'Soyeah Blog',
-      template: 'Soyeah Blog | %s',
-    },
+    title: 'Soyeah Blog',
     description: '프론트엔드 개발자 Soye의 블로그',
     images: [
       {
