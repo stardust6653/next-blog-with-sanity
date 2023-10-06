@@ -17,10 +17,7 @@ export const metadata: Metadata = {
     template: 'Soyeah Blog | %s',
   },
   openGraph: {
-    title: {
-      default: 'Soyeah Blog',
-      template: 'Soyeah Blog | %s',
-    },
+    title: 'Soyeah Blog',
     description: '프론트엔드 개발자 Soye의 블로그',
     url: 'https://www.soyeah-blog.xyz/',
     siteName: 'Soyeah Blog(박소예의 개발 블로그)',

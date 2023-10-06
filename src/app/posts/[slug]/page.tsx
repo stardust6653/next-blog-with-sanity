@@ -41,7 +41,22 @@ const DetailPage = async ({ params }: Props) => {
   return (
     <>
       <Head>
-        <title>{`Soyeah Blog | ${post[0]?.title}`}</title>
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta property="og:url" content={`https://www.soyeah-blog.xyz/${post[0].id}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={post[0]?.title} />
+        <meta property="og:description" content={post[0]?.description} />
+        <meta property="og:image" content={post[0]?.thumbnail} />
+
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="www.soyeah-blog.xyz" />
+        <meta property="twitter:url" content={`https://www.soyeah-blog.xyz/${post[0].id}`} />
+        <meta name="twitter:title" content={post[0]?.title} />
+        <meta name="twitter:description" content={post[0]?.description} />
+        <meta name="twitter:image" content={post[0]?.thumbnail} />
+
+        {/* <title>{`Soyeah Blog | ${post[0]?.title}`}</title>
         <meta property="og:title" content={post[0]?.title} />
         <meta property="og:description" content={post[0]?.description} />
         <meta property="og:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
@@ -58,7 +73,7 @@ const DetailPage = async ({ params }: Props) => {
         <meta
           name="twitter:image"
           content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
-        />
+        /> */}
       </Head>
       <div className="relative flex justify-center overflow-scroll w-full">
         <PostDetail params={params} />
