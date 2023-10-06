@@ -21,12 +21,12 @@ export const metadata = {
     siteName: 'Soyeah Blog(박소예의 개발 블로그)',
     images: [
       {
-        url: 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile-photo.5732a1e9.jpg&w=384&q=75',
+        url: 'https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2',
         width: 800,
         height: 600,
       },
       {
-        url: 'http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile-photo.5732a1e9.jpg&w=384&q=75',
+        url: 'https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F1800_1600.webp?alt=media&token=237f4be3-0481-4402-b846-4ed1d40705fb',
         width: 1800,
         height: 1600,
         alt: '프론트엔드 개발자 Soye의 블로그',
@@ -52,6 +52,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <meta property="og:image:alt" content="프론트엔드 개발자 Soye의 블로그" />
         <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="soyeah-blog.xyz" />
+        <meta property="twitter:url" content="https://www.soyeah-blog.xyz/" />
+        <meta name="twitter:title" content="Soyeah Blog" />
+        <meta name="twitter:description" content="프론트엔드 개발자 Soye의 블로그" />
+        <meta
+          name="twitter:image"
+          content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
+        />
+        COPY Preview How your website is displayed on search engines & social media. FACEBOOK SOYEAH-BLOG.XYZ TWITTER
       </Head>
 
       <body className="h-[calc(100vh-104px)]">
