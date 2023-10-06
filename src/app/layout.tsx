@@ -61,12 +61,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko" className={`${sans.className} h-full`}>
-      <Head>
-        <head>
-          <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/icon.png"></link>
-          <meta name="theme-color" content="#fff" />
-        </head>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon.png"></link>
+        <meta name="theme-color" content="#fff" />
 
         <meta property="og:title" content="Soyeah Blog" />
         <meta property="og:description" content="프론트엔드 개발자 Soye의 블로그" />
@@ -88,7 +86,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="twitter:image"
           content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
         />
-      </Head>
+      </head>
 
       <body className="h-[calc(100vh-104px)]">
         <AuthContext>
