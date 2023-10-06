@@ -48,13 +48,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:locale" content="ko_KR" />
         <meta
           property="og:image:url"
-          content="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile-photo.5732a1e9.jpg&w=384&q=75"
+          content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
         />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />
         <meta
           property="og:image:url"
-          content="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fprofile-photo.5732a1e9.jpg&w=384&q=75"
+          content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F1800_1600.webp?alt=media&token=237f4be3-0481-4402-b846-4ed1d40705fb"
         />
         <meta property="og:image:width" content="1800" />
         <meta property="og:image:height" content="1600" />
