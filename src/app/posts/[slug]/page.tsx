@@ -40,7 +40,7 @@ const DetailPage = async ({ params }: Props) => {
   return (
     <>
       <head>
-        <meta property="og:title" content={post[0].title} />
+        <meta property="og:title" content={post[0]?.title} />
         <meta property="og:description" content={post[0]?.description} />
         <meta property="og:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
         <meta property="og:site_name" content="Soyeah Blog(박소예의 개발 블로그)" />
