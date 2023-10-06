@@ -47,17 +47,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:site_name" content="Soyeah Blog(박소예의 개발 블로그)" />
         <meta property="og:locale" content="ko_KR" />
         <meta
-          property="og:image:url"
+          property="og:image"
           content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
         />
-        <meta property="og:image:width" content="800" />
-        <meta property="og:image:height" content="600" />
-        <meta
-          property="og:image:url"
-          content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F1800_1600.webp?alt=media&token=237f4be3-0481-4402-b846-4ed1d40705fb"
-        />
-        <meta property="og:image:width" content="1800" />
-        <meta property="og:image:height" content="1600" />
         <meta property="og:image:alt" content="프론트엔드 개발자 Soye의 블로그" />
         <meta property="og:type" content="website" />
       </Head>
