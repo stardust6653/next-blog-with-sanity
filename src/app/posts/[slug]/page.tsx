@@ -14,6 +14,8 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getDetailPost(params.slug);
 
+  console.log(post[0]?.thumbnail);
+
   return {
     title: post[0]?.title,
     description: post[0]?.description,
@@ -22,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const DetailPage = async ({ params }: Props) => {
   const post = await getDetailPost(params.slug);
+
   return (
     <>
       <div className="relative flex justify-center overflow-scroll w-full">
