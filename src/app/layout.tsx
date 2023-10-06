@@ -61,7 +61,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           name="twitter:image"
           content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
         />
-        COPY Preview How your website is displayed on search engines & social media. FACEBOOK SOYEAH-BLOG.XYZ TWITTER
       </Head>
 
       <body className="h-[calc(100vh-104px)]">
