@@ -39,7 +39,6 @@ const DetailPage = async ({ params }: Props) => {
 
   return (
     <>
-      <Head></Head>
       <div className="relative flex justify-center overflow-scroll w-full">
         <PostDetail params={params} />
       </div>
