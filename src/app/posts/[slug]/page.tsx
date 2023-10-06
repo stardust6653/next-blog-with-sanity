@@ -15,6 +15,8 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getDetailPost(params.slug);
 
+  console.log(post[0]?.thumbnail, post[0]?.title);
+
   return {
     title: post[0]?.title,
     openGraph: {
@@ -39,11 +41,31 @@ const DetailPage = async ({ params }: Props) => {
   const post = await getDetailPost(params.slug);
 
   return (
-    <>
+    <html lang="ko">
+      <head>
+        <title>{`Soyeah Blog | ${post[0]?.title}`}</title>
+        <meta property="og:title" content={post[0]?.title} />
+        <meta property="og:description" content={post[0]?.description} />
+        <meta property="og:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
+        <meta property="og:site_name" content="Soyeah Blog(박소예의 개발 블로그)" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:image" content={post[0]?.thumbnail} />
+        <meta property="og:image:alt" content="프론트엔드 개발자 Soye의 블로그" />
+        <meta property="og:type" content="website" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="soyeah-blog.xyz" />
+        <meta property="twitter:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
+        <meta name="twitter:title" content={post[0].title} />
+        <meta name="twitter:description" content={post[0]?.description} />
+        <meta
+          name="twitter:image"
+          content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
+        />
+      </head>
       <div className="relative flex justify-center overflow-scroll w-full">
         <PostDetail params={params} />
       </div>
-    </>
+    </html>
   );
 };
 
@@ -63,22 +85,3 @@ export default DetailPage;
 // <meta name="twitter:title" content={post[0]?.title} />
 // <meta name="twitter:description" content={post[0]?.description} />
 // <meta name="twitter:image" content={post[0]?.thumbnail} />
-
-// {/* <title>{`Soyeah Blog | ${post[0]?.title}`}</title>
-// <meta property="og:title" content={post[0]?.title} />
-// <meta property="og:description" content={post[0]?.description} />
-// <meta property="og:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
-// <meta property="og:site_name" content="Soyeah Blog(박소예의 개발 블로그)" />
-// <meta property="og:locale" content="ko_KR" />
-// <meta property="og:image" content={post[0]?.thumbnail} />
-// <meta property="og:image:alt" content="프론트엔드 개발자 Soye의 블로그" />
-// <meta property="og:type" content="website" />
-// <meta property="twitter:card" content="summary_large_image" />
-// <meta property="twitter:domain" content="soyeah-blog.xyz" />
-// <meta property="twitter:url" content={`https://www.soyeah-blog.xyz/posts/${post[0]?.id}`} />
-// <meta name="twitter:title" content={post[0].title} />
-// <meta name="twitter:description" content={post[0]?.description} />
-// <meta
-//   name="twitter:image"
-//   content="https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F800_600.webp?alt=media&token=81483264-6c85-498a-a18d-71e5ac9b70f2"
-// /> */}

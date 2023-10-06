@@ -25,7 +25,8 @@ export default async function Image({ params }: { params: { slug: string } }) {
           justifyContent: 'center',
         }}
       >
-        {post[0]?.title}
+        <img width={400} height={200} src={post[0]?.thumbnail} alt={post[0]?.description} />
+        <p>{post[0]?.title}</p>
       </div>
     )
   );
