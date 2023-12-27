@@ -74,7 +74,7 @@ export async function getPost() {
 
 export async function getNewPosts() {
   return client.fetch(
-    `*[_type == "post"] | order(date desc) [0...8]{
+    `*[_type == "post"] | order(date desc) [0...6]{
       ${SimplePostProjection}
     }`
   );
