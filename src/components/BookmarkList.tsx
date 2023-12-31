@@ -2,11 +2,12 @@
 
 import React from 'react';
 import useSWR from 'swr';
-import PostCard from './PostCard';
+
 import usePosts from '../hooks/posts';
 import Loader from './ui/Loader';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
+import PostCard from './post/PostCard';
 
 interface CardProps {
   thumbnail?: string;

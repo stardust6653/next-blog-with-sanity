@@ -1,5 +1,7 @@
 import React, { FormEvent } from 'react';
 
+import styles from './SearchBar.module.scss';
+
 type Props = {
   onSubmit: (e: FormEvent) => void;
   setKeyword: React.Dispatch<React.SetStateAction<string>>;
@@ -9,10 +11,10 @@ type Props = {
 const SearchBar = ({ onSubmit, setKeyword, keyword }: Props) => {
   return (
     <>
-      <form onSubmit={onSubmit} className=" justify-center md:pr-[30px] flex md:justify-end mb-5">
+      <form className={styles['search-bar']} onSubmit={onSubmit}>
         <input
           type="text"
-          className="w-[320px] md:w-[480px] h-8 p-5 outline-none rounded-lg  border border-gray-400 focus:border-gray-900"
+          className={styles['search-bar__input']}
           autoFocus
           placeholder="제목을 입력해주세요!"
           value={keyword}

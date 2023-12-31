@@ -1,0 +1,10 @@
+.post-list {
+  width: 100%;
+  .post-list__list {
+    display: grid;
+    margin-top: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    row-gap: 4rem;
+  }
+}
