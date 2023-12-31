@@ -1,0 +1,17 @@
+.list-view-button {
+  margin: 5rem 0 0;
+  display: flex;
+  justify-content: center;
+  .list-view-button__button {
+    border-radius: 10px;
+    padding: 0.8rem 1.5rem;
+    background-color: #283241;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background-color: #eab309;
+      color: #1f2838;
+      font-weight: 600;
+    }
+  }
+}
