@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import useSWR from 'swr';
-import BookmarkIcon from './ui/icons/BookmarkIcon';
-import HeartIcon from './ui/icons/HeartIcon';
-import HeartFillIcon from './ui/icons/HeartFillIcon';
-import BookmarkFillIcon from './ui/icons/BookmarkFillIcon';
-import usePosts from '../hooks/posts';
-import ToggleButton from './ui/ToggleButton';
-import { useMe } from '../hooks/bookmarks';
+import BookmarkIcon from '../../ui/icons/BookmarkIcon';
+import HeartIcon from '../../ui/icons/HeartIcon';
+import HeartFillIcon from '../../ui/icons/HeartFillIcon';
+import BookmarkFillIcon from '../../ui/icons/BookmarkFillIcon';
+import usePosts from '../../../hooks/posts';
+import ToggleButton from '../../ui/ToggleButton';
+import { useMe } from '../../../hooks/bookmarks';
+
+import styles from './SideBar.module.scss';
 
 const SideBar = ({ post }: { post: any }) => {
   const { setLike } = usePosts();
@@ -29,7 +30,7 @@ const SideBar = ({ post }: { post: any }) => {
 
   return (
     <>
-      <div className="absolute shadow-md rounded-lg p-5 bg-gray-50 top-[8rem] left-[-7.5rem] flex flex-col items-center justify-center ">
+      <div className={styles['side-bar']}>
         <ToggleButton toggled={liked} onToggle={handleLike} onIcon={<HeartFillIcon />} offIcon={<HeartIcon />} />
         <span className="mb-2">{likes?.length ?? 0}</span>
         <ToggleButton
