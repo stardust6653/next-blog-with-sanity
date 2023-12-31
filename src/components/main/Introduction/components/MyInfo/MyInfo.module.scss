@@ -1,24 +1,7 @@
 .my-info {
+  height: 50%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
   margin: 1rem 0;
-  .my-info__name-box {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-    .my-info__name {
-      font-size: 24px;
-      font-weight: 600;
-      margin-right: 0.5rem;
-    }
-    .my-info__icon-group {
-      margin: 0;
-      display: flex;
-      font-size: 24px;
-      .my-info__linked-in {
-        margin-right: 0.5rem;
-      }
-    }
-  }
-  .my-info__email {
-    font-weight: 300;
-  }
 }
