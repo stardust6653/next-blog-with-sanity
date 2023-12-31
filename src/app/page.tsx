@@ -3,7 +3,7 @@ import React from 'react';
 import PageTitle from '../components/ui/PageTitle';
 import Introduction from '@/components/main/Introduction';
 import NewPostList from '@/components/main/NewPostList';
-import CenterAlignment from '@/components/common/CenterAlignment';
+import CenterAlignment from '@/components/common/layout/CenterAlignment';
 
 const Home = async () => {
   return (

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import Footer from '../components/common/Footer';
-import Header from '../components/common/Header';
+import Footer from '../components/common/layout/Footer';
+import Header from '../components/common/layout/Header';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
 import AuthContext from '../context/AuthContext';
 import SWRConfigContext from '../context/SWRConfigContext';
 import Head from 'next/head';
 import { Metadata } from 'next';
-import Layout from '@/components/common/Layout';
+import Layout from '@/components/common/layout/Layout';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 const largeOgImage =

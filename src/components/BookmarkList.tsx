@@ -7,7 +7,7 @@ import usePosts from '../hooks/posts';
 import Loader from './ui/Loader';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
-import PostCard from './post/PostCard';
+import PostCard from './common/PostCard';
 
 interface CardProps {
   thumbnail?: string;

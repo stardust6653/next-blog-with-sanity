@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import React from 'react';
-import Navbar from '../../Navbar';
-import DropboxMenu from '../../DropboxMenu';
+import Navbar from '../../../Navbar';
+import DropboxMenu from '../../../DropboxMenu';
 import styles from './Header.module.scss';
 import Layout from '../Layout';
 
