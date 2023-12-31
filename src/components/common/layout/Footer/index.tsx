@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from './Footer.module.scss';
+
 const Footer = () => {
   return (
-    <footer className=" bottom-0 bg-gray-800 text-gray-300 p-6 flex justify-center mt-10">
+    <footer className={styles['footer']}>
       Copyright&copy; {new Date().getFullYear()}.soyepark.All rights reserved.
     </footer>
   );

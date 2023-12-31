@@ -10,6 +10,8 @@ import Head from 'next/head';
 import { Metadata } from 'next';
 import Layout from '@/components/common/layout/Layout';
 
+import styles from './layout.module.scss';
+
 const sans = Open_Sans({ subsets: ['latin'] });
 const largeOgImage =
   'https://firebasestorage.googleapis.com/v0/b/blog-project-97597.appspot.com/o/images%2F1800_1600.webp?alt=media&token=237f4be3-0481-4402-b846-4ed1d40705fb';
@@ -71,12 +73,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#fff" />
       </head>
 
-      <body className="h-[calc(100vh-104px)]">
+      <body className={styles['layout']}>
         <AuthContext>
           <SWRConfigContext>
             <Header />
 
-            <main style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+            <main style={{ width: '100%', display: 'flex', justifyContent: 'center', flex: '1' }}>
               <Layout>{children}</Layout>
             </main>
 

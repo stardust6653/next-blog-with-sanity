@@ -10,7 +10,7 @@ import ToastUiEditor from '../editor/ToastUiEditor';
 import EditorButton from '../editor/EditorButton';
 import useSWR from 'swr';
 import { redirect, useRouter } from 'next/navigation';
-import Loader from '../ui/Loader';
+import Loader from '../common/Loader';
 
 type LoadedDataProps = {
   title: string;

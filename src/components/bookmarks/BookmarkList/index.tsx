@@ -3,11 +3,12 @@
 import React from 'react';
 import useSWR from 'swr';
 
-import usePosts from '../hooks/posts';
-import Loader from './ui/Loader';
+import Loader from '../../common/Loader';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
-import PostCard from './common/PostCard';
+import PostCard from '../../common/PostCard';
+
+import styles from './BookmarkList.module.scss';
 
 interface CardProps {
   thumbnail?: string;
@@ -35,13 +36,11 @@ const BookmarkList = () => {
       {loading && <Loader />}
 
       {posts && (
-        <ul className="grid grid-cols-1 w-full lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">
+        <div className={styles['bookmark-list']}>
           {posts?.map((post: CardProps, index: number) => (
-            <li key={post.id}>
-              <PostCard key={index} post={post} />
-            </li>
+            <PostCard key={post.id} post={post} />
           ))}
-        </ul>
+        </div>
       )}
     </>
   );

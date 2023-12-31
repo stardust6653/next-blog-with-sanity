@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import PostCard from '../../common/PostCard';
 import SearchBar from '../SearchBar';
 import useDebounce from '../../../hooks/debounce';
-import Loader from '../../ui/Loader';
+import Loader from '../../common/Loader';
 import DoNotFindPost from '../../DoNotFindPost';
 
 import styles from './PostList.module.scss';

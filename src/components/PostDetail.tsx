@@ -6,10 +6,10 @@ import { parseDate } from '../util/date';
 import SideBar from './SideBar';
 import dynamic from 'next/dynamic';
 import usePosts from '../hooks/posts';
-import { CardProps } from './PostCard';
 import { viewCountUpdate } from '../util/viewCountUpdate';
-import Loader from './ui/Loader';
+import Loader from './common/Loader';
 import { useMe } from '../hooks/bookmarks';
+import { CardProps } from './common/PostCard';
 
 const MarkDownViewer = dynamic(() => import('./viewer/MarkDownViewer'), {
   ssr: false,

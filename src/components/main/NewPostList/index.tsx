@@ -2,7 +2,7 @@
 
 import React from 'react';
 import useSWR from 'swr';
-import Loader from '../../ui/Loader';
+import Loader from '../../common/Loader';
 import NewPostCard from './components/NewPostCard';
 
 import styles from './NewPostList.module.scss';

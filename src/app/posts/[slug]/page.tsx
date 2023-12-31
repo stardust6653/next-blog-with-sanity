@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import PostDetail from '../../..//components/PostDetail';
 import { getDetailPost } from '../../../service/posts';
 import Head from 'next/head';
-import Loader from '@/components/ui/Loader';
+import Loader from '@/components/common/Loader';
 
 interface Props {
   params: {
