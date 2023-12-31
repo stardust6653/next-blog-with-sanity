@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
-import PostDetail from '../../..//components/PostDetail';
+import PostDetail from '../../../components/post/PostDetail';
 import { getDetailPost } from '../../../service/posts';
 import Head from 'next/head';
 import Loader from '@/components/common/Loader';
@@ -38,14 +38,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const DetailPage = async ({ params }: Props) => {
-  const post = await getDetailPost(params.slug);
-
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <div className="relative flex justify-center overflow-scroll w-full">
-          <PostDetail params={params} />
-        </div>
+        <PostDetail params={params} />
       </Suspense>
     </>
   );

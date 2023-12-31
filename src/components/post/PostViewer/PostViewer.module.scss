@@ -1,0 +1,116 @@
+.post-viewer__group {
+  position: relative;
+  .post-viewer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .post-viewer__content {
+      line-height: 1.8rem;
+      margin-top: 3rem;
+      width: 60%;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        padding-bottom: 1rem;
+      }
+      h1 {
+        margin: 4rem 0 1rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        border-bottom: 1px double #1f2838;
+        line-height: 3rem;
+      }
+      h2 {
+        margin: 3rem 0 1rem;
+        font-weight: 600;
+        font-size: 2rem;
+        border-bottom: 1px solid #1f2838;
+      }
+      h3 {
+        margin: 3rem 0 1rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+      h4 {
+        margin: 3rem 0 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      h5 {
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+      h6 {
+        font-weight: 600;
+        margin: 1.5rem 0 0.5rem;
+        font-size: 1.2rem;
+      }
+      blockquote {
+        margin: 2rem 0;
+        padding: 0.5rem 2.5rem;
+        border-left: 10px double #1f28389e;
+      }
+      img {
+        margin-top: 1.5rem;
+        width: 100%;
+      }
+      p:has(img) {
+        margin: 0;
+        padding: 0;
+      }
+
+      hr {
+        margin: 2rem 0;
+      }
+
+      pre {
+        margin: 2rem 0;
+
+        &::before {
+          border-radius: 10px 10px 0 0;
+          content: ' ';
+          display: block;
+          width: 100%;
+          background-color: #eab309;
+        }
+        code {
+          border-radius: 0 0 15px 15px;
+          background-color: #1f2838;
+          color: beige;
+          padding: 1rem;
+          display: block;
+          font-size: 0.8rem;
+          margin-bottom: 1rem;
+          line-height: 20px;
+          br {
+            height: 0;
+          }
+        }
+      }
+      ol > li {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      li {
+        list-style: circle;
+        margin-bottom: 0.8rem;
+      }
+      table {
+        margin: 2rem 0;
+        border: 1px solid black;
+        thead {
+          tr {
+            td {
+              padding: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
