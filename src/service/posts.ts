@@ -1,7 +1,7 @@
 import { title } from 'process';
 import { DataProps } from '../../types/data';
 import { assetsURL, client } from './sanity';
-import { CardProps } from '../components/PostCard';
+import { CardProps } from '@/components/common/PostCard';
 
 const SimplePostProjection = `
 "title": title,
@@ -132,9 +132,14 @@ export async function getBookmarkList(username: string) {
   );
 }
 
-export async function searchPosts(keyword?: string) {
+export async function searchPosts(page: number, header?: string) {
+  const firstContent = page + page * 12;
+  const lastContent = page + (page + 1) * 12;
+  const keyword = header?.split(',')[0];
+
+  console.log(page, firstContent, lastContent);
   const query = keyword ? `&& (title match "${keyword}*")` : '';
-  return client.fetch(`*[_type == "post" ${query}] | order(date desc){
+  return client.fetch(`*[_type == "post" ${query}] | order(date desc)[${firstContent}...${lastContent}]{
     ${PostProjection}
   }`);
 }
