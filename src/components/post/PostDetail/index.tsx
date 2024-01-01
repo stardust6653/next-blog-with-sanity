@@ -52,7 +52,10 @@ const PostDetail = ({ params }: Props): any => {
               >
                 <SideBar post={post()} />
                 <div className={styles['post-detail__title-box']}>
-                  <h1 className={styles['post-detail__title']}>{post()?.title}</h1>
+                  <div>
+                    <h1 className={styles['post-detail__title']}>{post()?.title}</h1>
+                    <p className={styles['post-detail__description']}>{post()?.description}</p>
+                  </div>
                   <p className={styles['post-detail__created-date']}>{parseDate(post()?.date)}</p>
                 </div>
               </div>
