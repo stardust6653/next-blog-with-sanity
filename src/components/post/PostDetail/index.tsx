@@ -13,10 +13,9 @@ import { CardProps } from '../../common/PostCard';
 
 import styles from './PostDetail.module.scss';
 import PostViewer from '../PostViewer';
-
-const MarkDownViewer = dynamic(() => import('../../viewer/MarkDownViewer'), {
-  ssr: false,
-});
+import CommentsInput from '../CommentsInput';
+import ListViewButton from '../PostViewer/components/ListViewButton';
+import CommentsListView from '../CommentsListView';
 
 type Props = {
   params: {
@@ -44,24 +43,33 @@ const PostDetail = ({ params }: Props): any => {
     return (
       <>
         {loading && <Loader />}
-
-        {post() && (
-          <article className={styles['post-detail']}>
-            <div
-              className={styles['post-detail__title-group']}
-              style={{ background: `url(${post()?.thumbnail}) no-repeat center center`, backgroundSize: 'cover' }}
-            >
-              <SideBar post={post()} />
-              <div className={styles['post-detail__title-box']}>
-                <h1 className={styles['post-detail__title']}>{post()?.title}</h1>
-                <p className={styles['post-detail__created-date']}>{parseDate(post()?.date)}</p>
+        <article className={styles['post-detail']}>
+          {post() && (
+            <>
+              <div
+                className={styles['post-detail__title-group']}
+                style={{ background: `url(${post()?.thumbnail}) no-repeat center center`, backgroundSize: 'cover' }}
+              >
+                <SideBar post={post()} />
+                <div className={styles['post-detail__title-box']}>
+                  <h1 className={styles['post-detail__title']}>{post()?.title}</h1>
+                  <p className={styles['post-detail__created-date']}>{parseDate(post()?.date)}</p>
+                </div>
               </div>
-            </div>
-            <div className={styles['post-detail__viewer']}>
-              <PostViewer post={post()} />
-            </div>
-          </article>
-        )}
+
+              <div className={styles['post-detail__viewer']}>
+                <PostViewer post={post()} />
+              </div>
+            </>
+          )}
+          <div className={styles['post-detail__comments']}>
+            <CommentsInput />
+          </div>
+          <div className={styles['post-detail__comments-list-view']}>
+            <CommentsListView />
+          </div>
+          <ListViewButton />
+        </article>
       </>
     );
   }

@@ -1,4 +1,9 @@
 .post-detail {
+  .post-detail__comments,
+  .post-detail__comments-list-view {
+    display: flex;
+    justify-content: center;
+  }
   .post-detail__title-group {
     position: relative;
     overflow: hidden;
@@ -37,7 +42,5 @@
         font-size: 1.2rem;
       }
     }
-  }
-  .post-detail__viewer {
   }
 }

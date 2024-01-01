@@ -41,18 +41,22 @@ const PostList = () => {
     <div className={styles['post-list']}>
       <SearchBar onSubmit={onSubmit} setKeyword={setKeyword} keyword={keyword} />
       {isLoading && <Loader />}
-      {error && !isLoading && <p>잘못됨요!</p>}
-      <div className={styles['post-list__list']}>
-        {posts && (
-          <>
-            {posts?.map((post: CardProps) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-          </>
-        )}
-      </div>
+      {!isLoading && (
+        <>
+          {error && !isLoading && <p>잘못됨요!</p>}
+          <div className={styles['post-list__list']}>
+            {posts && (
+              <>
+                {posts?.map((post: CardProps) => (
+                  <PostCard key={post.id} post={post} />
+                ))}
+              </>
+            )}
+          </div>
 
-      {contentLength && <PaginationButton contentLength={contentLength} setPage={setPage} page={page + 1} />}
+          {contentLength && <PaginationButton contentLength={contentLength} setPage={setPage} page={page + 1} />}
+        </>
+      )}
 
       {!isLoading && !error && posts?.length === 0 && <DoNotFindPost />}
     </div>
