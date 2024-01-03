@@ -10,17 +10,7 @@ import DoNotFindPost from '../../DoNotFindPost';
 
 import styles from './PostList.module.scss';
 import PaginationButton from '@/components/common/PaginationButton';
-
-interface CardProps {
-  thumbnail?: string;
-  comments?: number;
-  content?: string;
-  createdAt?: string;
-  id?: string;
-  likes?: string[];
-  title?: string;
-  description?: string;
-}
+import { Card } from '../../../../types/types';
 
 const PostList = () => {
   const contentLength: number = useSWR(`/api/posts/`).data?.length;
@@ -35,8 +25,6 @@ const PostList = () => {
     e.preventDefault();
   };
 
-  console.log(posts);
-
   return (
     <div className={styles['post-list']}>
       <SearchBar onSubmit={onSubmit} setKeyword={setKeyword} keyword={keyword} />
@@ -47,7 +35,7 @@ const PostList = () => {
           <div className={styles['post-list__list']}>
             {posts && (
               <>
-                {posts?.map((post: CardProps) => (
+                {posts?.map((post: Card) => (
                   <PostCard key={post.id} post={post} />
                 ))}
               </>

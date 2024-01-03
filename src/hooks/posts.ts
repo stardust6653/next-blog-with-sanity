@@ -1,7 +1,7 @@
 'use client';
 
-import { CardProps } from '@/components/common/PostCard';
 import useSWR, { useSWRConfig } from 'swr';
+import { Card } from '../../types/types';
 
 type SimplePostProps = {
   comments: number;
@@ -32,7 +32,7 @@ export default function usePosts() {
       ...post,
       likes: like ? [...likes, username] : likes.filter((item: string) => item !== username),
     };
-    const newPosts = posts?.map((p: CardProps) => (p.id === post.id ? newPost : p));
+    const newPosts = posts?.map((p: Card) => (p.id === post.id ? newPost : p));
 
     return mutate(updateLike(post.id, like), {
       optimisticData: newPosts,

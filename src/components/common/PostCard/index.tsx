@@ -4,23 +4,15 @@ import React from 'react';
 import styles from './PostCard.module.scss';
 import CardImage from './components/CardImage';
 import CardInfo from './components/CardInfo';
-import { Comment, SaveComment } from '../../../../types/types';
+import { Card, SaveComment } from '../../../../types/types';
 
-export interface CardProps {
-  thumbnail: string;
-  comments: SaveComment[];
-  commentsCount: number | null;
-  content: string;
-  createdAt: string;
-  id: string;
-  likes: string[];
-  title: string;
-  description: string;
-  viewCount: number;
-  date: string;
+interface Props {
+  post: Card;
 }
 
-const PostCard = ({ post }: any) => {
+const PostCard = ({ post }: Props) => {
+  console.log(post, 'Daowkd;oawkdo;akwodk;oa 뭔데!');
+
   const { id } = post;
 
   return (
