@@ -35,7 +35,7 @@ const PostList = () => {
     e.preventDefault();
   };
 
-  console.log(page);
+  console.log(posts);
 
   return (
     <div className={styles['post-list']}>

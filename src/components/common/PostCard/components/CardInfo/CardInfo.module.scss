@@ -19,6 +19,7 @@
   .card-info__sub-info-group {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .card-info__icon-info-group {
       display: flex;
       .card-info__icon {
@@ -27,6 +28,16 @@
         margin-right: 0.5rem;
         svg {
           margin-right: 0.2rem;
+        }
+      }
+      .card-info__icon-message {
+        display: flex;
+        align-items: center;
+        margin: 0 8px;
+        svg {
+          margin-top: 2px;
+          font-size: 14px;
+          margin-right: 5px;
         }
       }
     }

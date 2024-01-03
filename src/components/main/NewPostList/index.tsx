@@ -6,6 +6,7 @@ import Loader from '../../common/Loader';
 import NewPostCard from './components/NewPostCard';
 
 import styles from './NewPostList.module.scss';
+import ListViewButton from '@/components/post/PostViewer/components/ListViewButton';
 
 interface SimpleCardProps {
   thumbnail: string;
@@ -21,12 +22,17 @@ const NewPostList = () => {
   return (
     <>
       {loading && <Loader />}
-      {posts && (
-        <div className={styles['new-post-list']}>
-          {posts?.map((post: SimpleCardProps) => (
-            <NewPostCard key={post.id} post={post} />
-          ))}
-        </div>
+      {!loading && (
+        <>
+          {posts && (
+            <div className={styles['new-post-list']}>
+              {posts?.map((post: SimpleCardProps) => (
+                <NewPostCard key={post.id} post={post} />
+              ))}
+            </div>
+          )}
+          <ListViewButton />
+        </>
       )}
     </>
   );

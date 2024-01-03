@@ -15,34 +15,6 @@
       border-radius: 10px;
       border: 1px solid #1f2838;
       display: flex;
-      .comments__id-info {
-        padding: 1rem;
-        border-right: 1px solid #1f2838;
-      }
-      .comments__id-input-group,
-      .comments__password-input-group {
-        margin-bottom: 1rem;
-        display: flex;
-        flex-direction: column;
-        label {
-          padding-left: 0.2rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-        }
-        input {
-          border-radius: 5px;
-          border: 1px solid #1f2838;
-          outline: none;
-          padding: 0.5rem;
-        }
-      }
-      .comments__text-input {
-        outline: none;
-        padding: 1rem 1.5rem;
-        width: 80%;
-        resize: none;
-        line-height: 1.5rem;
-      }
     }
   }
   .comments__button-area {

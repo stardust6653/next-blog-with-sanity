@@ -1,7 +1,6 @@
-import { title } from 'process';
 import { DataProps } from '../../types/data';
 import { assetsURL, client } from './sanity';
-import { CardProps } from '@/components/common/PostCard';
+import { Comment } from '../../types/types';
 
 const SimplePostProjection = `
 "title": title,
@@ -15,7 +14,8 @@ const PostProjection = `
 "content": content,
 "likes": likes[] -> username,
 "thumbnail" : imgUrl,
-"comments": count(comments),
+"comments": comments,
+"commentsCount": count(comments),
 "id": _id,
 "createdAt": _createdAt,
 "description": description,
@@ -62,6 +62,33 @@ export async function createPost(dataObj: DataProps) {
     },
     { autoGenerateArrayKeys: true }
   );
+}
+
+export async function addComments(data: Comment) {
+  const { register, name, password, userId, profileImage, comment, createdAt, id } = data;
+  return client
+    .patch(id)
+    .setIfMissing({ comments: [] })
+    .append('comments', [
+      {
+        register,
+        name,
+        password,
+        userId,
+        profileImage,
+        comment,
+        createdAt,
+        id,
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true });
+}
+
+export async function deleteComments(id: string, postId: string) {
+  return client
+    .patch(postId)
+    .unset([`comments[_key=="${id}"]`])
+    .commit();
 }
 
 export async function getPost() {
@@ -114,13 +141,6 @@ export async function dislikePost(postId: string, userId: string) {
     .unset([`likes[_ref == "${userId}"]`])
     .commit();
 }
-
-const mapPosts = (posts: CardProps[]) => {
-  return posts.map((post: CardProps) => ({
-    ...post,
-    likes: post.likes ?? [],
-  }));
-};
 
 export async function getBookmarkList(username: string) {
   return client.fetch(

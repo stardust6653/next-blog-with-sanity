@@ -1,0 +1,26 @@
+.unregister-input-field__id-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 30%;
+  height: 191px;
+  border-right: 1px solid #1f2838;
+  .unregister-input-field__id-input-group,
+  .unregister-input-field__password-input-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    label {
+      padding-left: 0.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    input {
+      border-radius: 5px;
+      border: 1px solid #1f2838;
+      outline: none;
+      padding: 0.5rem;
+    }
+  }
+}

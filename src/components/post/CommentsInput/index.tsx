@@ -1,36 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './CommentsInput.module.scss';
+import { useMe } from '../../../hooks/bookmarks';
+import { patchComment } from '../../../util/patchComment';
+import UnregisterInputField from './components/UnregisterInputField';
+import TextArea from './components/TextArea';
+import RegisterField from './components/RegisterField';
 
-const CommentsInput = () => {
+import { Comment } from '../../../../types/types';
+
+interface Props {
+  id: string;
+  commentsCount: number | null;
+}
+
+const CommentsInput = ({ id, commentsCount }: Props) => {
+  const { user } = useMe();
+  console.log(user);
+
+  const [author, setAuthor] = useState('');
+  const [password, setPassword] = useState('');
+  const [content, setContent] = useState('');
+
+  const date = new Date();
+
+  const commentData: Comment = {
+    register: user ? true : false,
+    name: user ? user.username : author,
+    password: user ? null : password,
+    userId: user ? user.id : null,
+    profileImage: user ? user.image : null,
+    comment: content,
+    createdAt: date,
+    id: id,
+  };
+
   return (
     <div className={styles['comments']}>
       <label className={styles['comments__comment-label']} htmlFor="comment__input">
-        Comments
+        {commentsCount === 0 ? 'Comment' : 'Comments'} ({commentsCount})
       </label>
       <div className={styles['comments__field']}>
         <div className={styles['comments__input-field']}>
-          <form className={styles['comments__id-info']}>
-            <div className={styles['comments__id-input-group']}>
-              <label className={styles['comments__id-input-label']} htmlFor="id-input">
-                ID
-              </label>
-              <input className={styles['comments__password-input-label']} id="id-input" type="text" placeholder="ID" />
-            </div>
-            <div className={styles['comments__password-input-group']}>
-              <label htmlFor="password-input">Password</label>
-              <input id="password-input" type="password" placeholder="PASSWORD" />
-            </div>
-          </form>
-          <textarea
-            className={styles['comments__text-input']}
-            id="comment-input"
-            name="comment-input"
-            placeholder="댓글을 입력해주세요."
-          />
+          {user ? (
+            <RegisterField user={user} />
+          ) : (
+            <UnregisterInputField setAuthor={setAuthor} setPassword={setPassword} />
+          )}
+          <TextArea setContent={setContent} />
         </div>
         <div className={styles['comments__button-area']}>
-          <button className={styles['comments__button']}>작성하기</button>
+          <button className={styles['comments__button']} onClick={() => patchComment(commentData)}>
+            작성하기
+          </button>
         </div>
       </div>
     </div>

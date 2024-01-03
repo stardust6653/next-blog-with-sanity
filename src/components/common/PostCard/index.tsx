@@ -4,10 +4,12 @@ import React from 'react';
 import styles from './PostCard.module.scss';
 import CardImage from './components/CardImage';
 import CardInfo from './components/CardInfo';
+import { Comment, SaveComment } from '../../../../types/types';
 
 export interface CardProps {
   thumbnail: string;
-  comments: number;
+  comments: SaveComment[];
+  commentsCount: number | null;
   content: string;
   createdAt: string;
   id: string;

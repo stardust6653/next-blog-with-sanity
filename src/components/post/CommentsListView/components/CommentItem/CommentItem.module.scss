@@ -1,10 +1,18 @@
 .comment-item {
+  width: 100%;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin-bottom: 2rem;
   .comment-item__writing-info {
     margin-bottom: 1rem;
+    display: flex;
+    .comment-item__profile-photo {
+      margin-right: 1rem;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+    }
     .comment-item__author {
       margin-bottom: 0.3rem;
       font-size: 1.1rem;

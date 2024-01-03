@@ -32,14 +32,44 @@ export default {
           type: 'document',
           fields: [
             {
-              title: 'Author',
-              name: 'author',
-              type: 'reference',
-              to: [{type: 'user'}],
+              title: 'Register',
+              name: 'register',
+              type: 'boolean',
+            },
+
+            {
+              title: 'Name',
+              name: 'name',
+              type: 'string',
+            },
+            {
+              title: 'Password',
+              name: 'password',
+              type: 'string',
+            },
+            {
+              title: 'User Id',
+              name: 'userId',
+              type: 'string',
+            },
+            {
+              title: 'Profile Image',
+              name: 'profileImage',
+              type: 'string',
             },
             {
               title: 'Comment',
               name: 'comment',
+              type: 'string',
+            },
+            {
+              title: 'Created At',
+              name: 'createdAt',
+              type: 'string',
+            },
+            {
+              title: 'Id',
+              name: 'id',
               type: 'string',
             },
           ],
