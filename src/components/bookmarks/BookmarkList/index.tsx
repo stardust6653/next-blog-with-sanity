@@ -9,17 +9,7 @@ import { redirect } from 'next/navigation';
 import PostCard from '../../common/PostCard';
 
 import styles from './BookmarkList.module.scss';
-
-interface CardProps {
-  thumbnail?: string;
-  comments?: number;
-  content?: string;
-  createdAt?: string;
-  id?: string;
-  likes?: string[];
-  title?: string;
-  description?: string;
-}
+import { Card } from '../../../../types/types';
 
 const BookmarkList = () => {
   const { data: session } = useSession();
@@ -37,7 +27,7 @@ const BookmarkList = () => {
 
       {posts && (
         <div className={styles['bookmark-list']}>
-          {posts?.map((post: CardProps, index: number) => (
+          {posts?.map((post: Card, index: number) => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>
