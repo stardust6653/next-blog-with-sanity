@@ -50,3 +50,17 @@ export interface Card {
   title: string;
   viewCount: number;
 }
+
+export interface CardProps {
+  thumbnail: string;
+  comments: SaveComment[];
+  commentsCount: number | null;
+  content: string;
+  createdAt: string;
+  id: string;
+  likes: string[];
+  title: string;
+  description: string;
+  viewCount: number;
+  date: string;
+}

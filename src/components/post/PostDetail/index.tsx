@@ -1,21 +1,18 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { parseDate } from '../../../util/date';
 import SideBar from '../SideBar';
-import dynamic from 'next/dynamic';
 import usePosts from '../../../hooks/posts';
 import { viewCountUpdate } from '../../../util/viewCountUpdate';
 import Loader from '../../common/Loader';
 import { useMe } from '../../../hooks/bookmarks';
-import { CardProps } from '../../common/PostCard';
-
 import styles from './PostDetail.module.scss';
 import PostViewer from '../PostViewer';
 import CommentsInput from '../CommentsInput';
 import ListViewButton from '../PostViewer/components/ListViewButton';
 import CommentsListView from '../CommentsListView';
+import { Card } from '../../../../types/types';
 
 type Props = {
   params: {
@@ -30,10 +27,10 @@ const PostDetail = ({ params }: Props): any => {
   const ownership = user?.owner;
 
   if (posts !== undefined) {
-    const arrayPosts: CardProps[] = Array.from(posts);
+    const arrayPosts: Card[] = Array.from(posts);
 
     const post = () => {
-      return arrayPosts.filter((item: CardProps) => item.id === id)[0];
+      return arrayPosts.filter((item: Card) => item.id === id)[0];
     };
 
     if (!ownership) {
