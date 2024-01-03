@@ -1,9 +1,7 @@
 import React from 'react';
-import PostCard from '../../../components/PostCard';
 import { Metadata } from 'next';
-import PostList from '../../../components/PostList';
 import PageTitle from '../../../components/ui/PageTitle';
-import BookmarkList from '@/components/BookmarkList';
+import BookmarkList from '@/components/bookmarks/BookmarkList';
 
 export const metadata: Metadata = {
   title: 'All Posts',

@@ -1,3 +1,4 @@
+const path = require('path');
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -24,6 +25,12 @@ const nextConfig = {
         hostname: 'firebasestorage.googleapis.com',
       },
     ],
+  },
+};
+
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
   },
 };
 module.exports = withPWA(nextConfig);

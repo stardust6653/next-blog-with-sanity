@@ -1,0 +1,7 @@
+.new-post-list {
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  row-gap: 4rem;
+}

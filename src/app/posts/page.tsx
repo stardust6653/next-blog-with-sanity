@@ -1,8 +1,8 @@
 import React from 'react';
-import PostCard from '../../components/PostCard';
 import { Metadata } from 'next';
-import PostList from '../../components/PostList';
+import PostList from '../../components/post/PostList';
 import PageTitle from '../../components/ui/PageTitle';
+import Layout from '../../components/common/layout/Layout';
 
 export const metadata: Metadata = {
   title: 'All Posts',
@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 
 const page = async () => {
   return (
-    <div className="flex flex-col items-center relative justify-center ">
+    <Layout>
       <PageTitle text="Posts" />
       <PostList />
-    </div>
+    </Layout>
   );
 };
 

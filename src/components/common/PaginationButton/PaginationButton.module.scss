@@ -1,0 +1,26 @@
+.pagination-button {
+  margin: 4rem 0 0;
+  display: flex;
+  justify-content: center;
+  .pagination-button__page-number {
+    color: #1f2838;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #eab309;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      background-color: #26445a;
+      color: #eab309;
+    }
+  }
+  .pagination-button__active-button {
+    background-color: #1f2838;
+    color: #eab309;
+  }
+}

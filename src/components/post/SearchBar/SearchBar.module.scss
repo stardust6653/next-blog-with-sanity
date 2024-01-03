@@ -1,0 +1,14 @@
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  .search-bar__input {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.8rem 2rem;
+    width: 420px;
+    border-radius: 10px;
+    outline: none;
+    &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.comment-item {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  .comment-item__writing-info {
+    margin-bottom: 1rem;
+    display: flex;
+    .comment-item__profile-photo {
+      margin-right: 1rem;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+    }
+    .comment-item__author {
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .comment-item__created-at {
+      font-size: 0.9rem;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .comment-item__comment {
+    line-height: 1.5rem;
+  }
+  .comment-item__action-group {
+    display: flex;
+    color: rgba(11, 11, 87, 0.8);
+    font-size: 0.9rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    button {
+      margin-right: 0.5rem;
+      &:hover {
+        color: rgba(11, 11, 87, 1);
+      }
+    }
+    .comment-item__delete-button {
+      color: rgba(192, 17, 17, 0.8);
+      &:hover {
+        color: rgba(192, 17, 17, 1);
+      }
+    }
+  }
+}

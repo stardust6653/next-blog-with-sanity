@@ -1,13 +1,16 @@
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import Footer from '../components/common/Footer';
-import Header from '../components/common/Header';
+import Footer from '../components/common/layout/Footer';
+import Header from '../components/common/layout/Header';
 import './globals.css';
 import { Open_Sans } from 'next/font/google';
 import AuthContext from '../context/AuthContext';
 import SWRConfigContext from '../context/SWRConfigContext';
 import Head from 'next/head';
 import { Metadata } from 'next';
+import Layout from '@/components/common/layout/Layout';
+
+import styles from './layout.module.scss';
 
 const sans = Open_Sans({ subsets: ['latin'] });
 const largeOgImage =
@@ -70,15 +73,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#fff" />
       </head>
 
-      <body className="h-[calc(100vh-104px)]">
+      <body className={styles['layout']}>
         <AuthContext>
           <SWRConfigContext>
-            <div className="min-h-full relative ">
-              <Header />
-              <main>{children}</main>
-            </div>
+            <Header />
+
+            <main style={{ width: '100%', display: 'flex', justifyContent: 'center', flex: '1' }}>
+              <Layout>{children}</Layout>
+            </main>
+
+            <Footer />
           </SWRConfigContext>
-          <Footer />
         </AuthContext>
         <Analytics />
       </body>

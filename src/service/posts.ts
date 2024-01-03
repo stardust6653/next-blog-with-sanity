@@ -1,7 +1,6 @@
-import { title } from 'process';
 import { DataProps } from '../../types/data';
 import { assetsURL, client } from './sanity';
-import { CardProps } from '../components/PostCard';
+import { Comment } from '../../types/types';
 
 const SimplePostProjection = `
 "title": title,
@@ -15,7 +14,8 @@ const PostProjection = `
 "content": content,
 "likes": likes[] -> username,
 "thumbnail" : imgUrl,
-"comments": count(comments),
+"comments": comments,
+"commentsCount": count(comments),
 "id": _id,
 "createdAt": _createdAt,
 "description": description,
@@ -64,6 +64,33 @@ export async function createPost(dataObj: DataProps) {
   );
 }
 
+export async function addComments(data: Comment) {
+  const { register, name, password, userId, profileImage, comment, createdAt, id } = data;
+  return client
+    .patch(id)
+    .setIfMissing({ comments: [] })
+    .append('comments', [
+      {
+        register,
+        name,
+        password,
+        userId,
+        profileImage,
+        comment,
+        createdAt,
+        id,
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true });
+}
+
+export async function deleteComments(id: string, postId: string) {
+  return client
+    .patch(postId)
+    .unset([`comments[_key=="${id}"]`])
+    .commit();
+}
+
 export async function getPost() {
   return client.fetch(
     `*[_type == "post"] | order(date desc){
@@ -74,7 +101,7 @@ export async function getPost() {
 
 export async function getNewPosts() {
   return client.fetch(
-    `*[_type == "post"] | order(date desc) [0...8]{
+    `*[_type == "post"] | order(date desc) [0...6]{
       ${SimplePostProjection}
     }`
   );
@@ -115,13 +142,6 @@ export async function dislikePost(postId: string, userId: string) {
     .commit();
 }
 
-const mapPosts = (posts: CardProps[]) => {
-  return posts.map((post: CardProps) => ({
-    ...post,
-    likes: post.likes ?? [],
-  }));
-};
-
 export async function getBookmarkList(username: string) {
   return client.fetch(
     `*[_type == "post" && _id in *[_type == "user" && username == "${username}"].bookmarks[]._ref ]
@@ -132,9 +152,14 @@ export async function getBookmarkList(username: string) {
   );
 }
 
-export async function searchPosts(keyword?: string) {
+export async function searchPosts(page: number, header?: string) {
+  const firstContent = page + page * 12;
+  const lastContent = page + (page + 1) * 12;
+  const keyword = header?.split(',')[0];
+
+  console.log(page, firstContent, lastContent);
   const query = keyword ? `&& (title match "${keyword}*")` : '';
-  return client.fetch(`*[_type == "post" ${query}] | order(date desc){
+  return client.fetch(`*[_type == "post" ${query}] | order(date desc)[${firstContent}...${lastContent}]{
     ${PostProjection}
   }`);
 }
