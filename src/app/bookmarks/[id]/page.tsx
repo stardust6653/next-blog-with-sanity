@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import PageTitle from '../../../components/ui/PageTitle';
+import PageTitle from '../../../components/common/PageTitle';
 import BookmarkList from '@/components/bookmarks/BookmarkList';
 
 export const metadata: Metadata = {

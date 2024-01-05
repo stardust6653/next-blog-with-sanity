@@ -1,7 +1,9 @@
 import React from 'react';
 
+import styles from './PageTitle.module.scss';
+
 const PageTitle = ({ text }: { text: string }) => {
-  return <h2 className="text-4xl font-bold pt-12 pb-8 text-center">{text}</h2>;
+  return <h2 className={styles['page-title']}>{text}</h2>;
 };
 
 export default PageTitle;
