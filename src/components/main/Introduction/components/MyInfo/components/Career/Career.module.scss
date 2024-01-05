@@ -30,6 +30,13 @@
 @media screen and (max-width: 1360px) {
   .career {
     grid-template-columns: repeat(1, 1fr);
+    .career__info-group {
+      .career__career-data {
+        .career__period-date {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 
