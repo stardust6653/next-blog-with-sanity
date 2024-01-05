@@ -49,3 +49,35 @@
     }
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .post-detail {
+    padding: 0 35px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .post-detail {
+    padding: 0 25px;
+    .post-detail__title-group {
+      .post-detail__title-box {
+        padding: 2rem;
+        .post-detail__title {
+          font-weight: 700;
+          font-size: 1.5rem;
+          line-height: 2.2rem;
+          margin-bottom: 0.5rem;
+        }
+        .post-detail__description {
+          font-size: 1rem;
+          line-height: 1.5rem;
+          font-weight: 500;
+        }
+        .post-detail__created-date {
+          text-align: end;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

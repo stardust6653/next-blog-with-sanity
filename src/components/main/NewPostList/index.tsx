@@ -3,10 +3,11 @@
 import React from 'react';
 import useSWR from 'swr';
 import Loader from '../../common/Loader';
-import NewPostCard from './components/NewPostCard';
 
 import styles from './NewPostList.module.scss';
 import ListViewButton from '@/components/post/PostViewer/components/ListViewButton';
+import PostCard from '@/components/common/PostCard';
+import { Card } from '../../../../types/types';
 
 interface SimpleCardProps {
   thumbnail: string;
@@ -17,7 +18,7 @@ interface SimpleCardProps {
 }
 
 const NewPostList = () => {
-  const { data: posts, isLoading: loading, error } = useSWR<SimpleCardProps[]>('/api/newPosts/');
+  const { data: posts, isLoading: loading, error } = useSWR<Card[]>('/api/newPosts/');
 
   return (
     <>
@@ -26,8 +27,8 @@ const NewPostList = () => {
         <>
           {posts && (
             <div className={styles['new-post-list']}>
-              {posts?.map((post: SimpleCardProps) => (
-                <NewPostCard key={post.id} post={post} />
+              {posts?.map((post: Card) => (
+                <PostCard key={post.id} post={post} type="NEW" />
               ))}
             </div>
           )}

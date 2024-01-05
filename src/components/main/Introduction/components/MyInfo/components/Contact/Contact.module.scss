@@ -14,3 +14,12 @@
     }
   }
 }
+@media screen and (max-width: 991px) {
+  .contact {
+    .contact__icon-group {
+      a {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

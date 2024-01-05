@@ -12,3 +12,11 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .search-bar {
+    .search-bar__input {
+      width: 100%;
+    }
+  }
+}

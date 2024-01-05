@@ -3,3 +3,9 @@
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
+
+@media screen and (max-width: 991px) {
+  .info-title {
+    font-size: 1.2rem;
+  }
+}

@@ -9,29 +9,35 @@ import { Card } from '../../../../../../types/types';
 
 interface Props {
   data: Card;
+  type: 'NEW' | 'POST';
 }
 
-const CardInfo = ({ data }: Props) => {
-  console.log(data);
+const CardInfo = ({ data, type }: Props) => {
   return (
     <div className={styles['card-info']}>
       <p className={styles['card-info__title']}>{data.title}</p>
       <p className={styles['card-info__description']}>{data.description}</p>
-      <div className={styles['card-info__sub-info-group']}>
-        <div className={styles['card-info__icon-info-group']}>
-          <div className={styles['card-info__icon']}>
-            <ViewIcon size="text-xl" />
-            <p>{data.viewCount}</p>
+      <div
+        className={`${styles['card-info__sub-info-group']} ${
+          type === 'NEW' && styles['new-card-info__sub-info-group']
+        }`}
+      >
+        {type === 'POST' && (
+          <div className={styles['card-info__icon-info-group']}>
+            <div className={styles['card-info__icon']}>
+              <ViewIcon size="text-xl" />
+              <p>{data.viewCount}</p>
+            </div>
+            <div className={styles['card-info__icon']}>
+              <HeartIcon size="ml-2 text-base" />
+              <p>{data.likes?.length ?? 0}</p>
+            </div>
+            <div className={styles['card-info__icon-message']}>
+              <GoComment className={styles['card-info__message-icon']} />
+              <p>{data.commentsCount ?? 0}</p>
+            </div>
           </div>
-          <div className={styles['card-info__icon']}>
-            <HeartIcon size="ml-2 text-base" />
-            <p>{data.likes?.length ?? 0}</p>
-          </div>
-          <div className={styles['card-info__icon-message']}>
-            <GoComment className={styles['card-info__message-icon']} />
-            <p>{data.commentsCount ?? 0}</p>
-          </div>
-        </div>
+        )}
         <p className={styles['card-info__created-date']}>{parseDate(data.date)}</p>
       </div>
     </div>

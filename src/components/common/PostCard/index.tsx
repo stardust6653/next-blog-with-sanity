@@ -8,11 +8,10 @@ import { Card, SaveComment } from '../../../../types/types';
 
 interface Props {
   post: Card;
+  type: 'NEW' | 'POST';
 }
 
-const PostCard = ({ post }: Props) => {
-  console.log(post, 'Daowkd;oawkdo;akwodk;oa 뭔데!');
-
+const PostCard = ({ post, type }: Props) => {
   const { id } = post;
 
   return (
@@ -21,7 +20,7 @@ const PostCard = ({ post }: Props) => {
         <div className={styles['post-card__image']}>
           <CardImage data={post} />
         </div>
-        <CardInfo data={post} />
+        <CardInfo data={post} type={type} />
       </div>
     </Link>
   );

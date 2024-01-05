@@ -36,7 +36,7 @@ const PostList = () => {
             {posts && (
               <>
                 {posts?.map((post: Card) => (
-                  <PostCard key={post.id} post={post} />
+                  <PostCard key={post.id} post={post} type="POST" />
                 ))}
               </>
             )}
