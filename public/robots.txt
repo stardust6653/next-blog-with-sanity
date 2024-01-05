@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://soyeah-blog.xyz
-
-# Sitemaps
-Sitemap: https://soyeah-blog.xyz/sitemap.xml
