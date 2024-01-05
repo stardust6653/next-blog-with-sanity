@@ -5,3 +5,12 @@
   flex-direction: column;
   margin: 1rem 0;
 }
+
+@media screen and (max-width: 991px) {
+  .my-info {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+}

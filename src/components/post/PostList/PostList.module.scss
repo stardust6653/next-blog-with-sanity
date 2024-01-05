@@ -8,3 +8,25 @@
     row-gap: 4rem;
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .post-list {
+    padding: 0 35px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .post-list {
+    .post-list__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .post-list {
+    .post-list__list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

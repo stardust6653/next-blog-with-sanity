@@ -1,12 +1,14 @@
-.center-alignment {
+.center-alignment,
+.center-alignment__column {
   width: 100%;
   display: flex;
+}
+
+.center-alignment {
   justify-content: center;
 }
 
 .center-alignment__column {
-  width: 100%;
-  display: flex;
   flex-direction: column;
   align-items: center;
 }

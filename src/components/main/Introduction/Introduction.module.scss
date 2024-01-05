@@ -14,3 +14,33 @@
     justify-content: space-between;
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .introduction {
+    padding: 3rem 35px 0;
+    border-bottom: none;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .introduction {
+    flex-direction: column;
+    border-bottom: none;
+    margin-bottom: 0;
+    .introduction__main-info {
+      padding: 0;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .introduction {
+    padding: 2rem 25px;
+    flex-direction: column;
+    .introduction__main-info {
+      width: 100%;
+    }
+  }
+}

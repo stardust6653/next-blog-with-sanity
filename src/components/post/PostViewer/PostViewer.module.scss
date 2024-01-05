@@ -8,7 +8,7 @@
     .post-viewer__content {
       line-height: 1.8rem;
       margin-top: 2rem;
-      width: 60%;
+      width: 768px;
       h1,
       h2,
       h3,
@@ -79,6 +79,7 @@
           background-color: #eab309;
         }
         code {
+          overflow: scroll;
           border-radius: 0 0 15px 15px;
           background-color: #1f2838;
           color: beige;
@@ -118,6 +119,62 @@
         &:hover {
           color: #eab309;
           border-bottom: 1px solid #eab309;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .post-viewer__group {
+    .post-viewer {
+      .post-viewer__content {
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .post-viewer__group {
+    .post-viewer {
+      .post-viewer__content {
+        width: 100%;
+        h1 {
+          font-size: 1.8rem;
+          line-height: 2.2rem;
+          margin: 2rem 0 0.5rem;
+        }
+        h2 {
+          margin: 2rem 0 0.5rem;
+          font-size: 1.5rem;
+          line-height: 1.9rem;
+        }
+        h3 {
+          margin: 1.8rem 0 0.5rem;
+          font-size: 1.3rem;
+          line-height: 1.7rem;
+        }
+        h4 {
+          margin: 1.8rem 0 0.5rem;
+          line-height: 1.6rem;
+          font-size: 1.2rem;
+        }
+        h5 {
+          margin: 1.8rem 0 0.5rem;
+          line-height: 1.5rem;
+          font-size: 1.1rem;
+        }
+        h6 {
+          margin: 1.8rem 0 0.5rem;
+          line-height: 1.4rem;
+          font-size: 1rem;
+        }
+        pre {
+          margin: 0.5rem;
+        }
+        blockquote {
+          margin: 1.5rem 0;
+          padding: 0.5rem 1.5rem;
         }
       }
     }

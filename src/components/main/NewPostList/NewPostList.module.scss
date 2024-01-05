@@ -5,3 +5,41 @@
   gap: 2rem;
   row-gap: 4rem;
 }
+
+// @media screen and (max-width: 1360px) {
+//   .new-post-list {
+//     padding: 0 35px;
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 4rem;
+//   }
+// }
+
+// @media screen and (max-width: 991px) {
+//   .new-post-list {
+//     padding: 0 25px;
+//   }
+// }
+
+// @media screen and (max-width: 776px) {
+//   .new-post-list {
+//     grid-template-columns: repeat(1, 1fr);
+//   }
+// }
+
+@media screen and (max-width: 1360px) {
+  .new-post-list {
+    padding: 0 35px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .new-post-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .new-post-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

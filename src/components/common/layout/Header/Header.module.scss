@@ -11,3 +11,15 @@
     background-color: #1f2937;
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .header__layout {
+    padding: 0 35px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .header__layout {
+    padding: 0 25px;
+  }
+}

@@ -26,3 +26,15 @@
     }
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .career {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .career {
+    font-size: 14px;
+  }
+}
