@@ -68,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko" className={`${sans.className} h-full`}>
       <head>
+        <meta name="naver-site-verification" content="bbad7cf29c30f26edc34bebae30ab9442627bea5" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/icon.png"></link>
         <meta name="theme-color" content="#fff" />
