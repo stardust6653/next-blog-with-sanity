@@ -28,7 +28,7 @@ const BookmarkList = () => {
       {posts && (
         <div className={styles['bookmark-list']}>
           {posts?.map((post: Card, index: number) => (
-            <PostCard key={post.id} post={post} />
+            <PostCard key={post.id} post={post} type="POST" />
           ))}
         </div>
       )}
