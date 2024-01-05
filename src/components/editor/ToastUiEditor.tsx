@@ -36,7 +36,7 @@ const ToastUiEditor = ({ setContent, loadedContent }: Props) => {
           setContent(content);
         }}
         placeholder="글을 적어주세요!"
-        previewStyle="vertical"
+        // previewStyle="vertical"
         height={'80%'}
         initialEditType="markdown"
         useCommandShortcut={false}

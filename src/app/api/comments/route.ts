@@ -10,8 +10,3 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     .catch((error) => new Response(JSON.stringify(error), { status: 500 }));
 };
 
-export const PUT = async (req: NextRequest, res: NextResponse) => {
-  console.log(req.json());
-  // console.log('DELETE 메소드 실행 중');
-  // console.log(data._key);
-};
