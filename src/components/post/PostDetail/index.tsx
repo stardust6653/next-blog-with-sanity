@@ -62,12 +62,12 @@ const PostDetail = ({ params }: Props): any => {
               </div>
             </>
           )}
-          {/* <div className={styles['post-detail__comments']}>
+          <div className={styles['post-detail__comments']}>
             <CommentsInput id={id} commentsCount={post().commentsCount} />
           </div>
           <div className={styles['post-detail__comments-list-view']}>
             <CommentsListView comments={post().comments} postId={id} commentsCount={post().commentsCount} />
-          </div> */}
+          </div>
           <ListViewButton />
         </article>
       </>

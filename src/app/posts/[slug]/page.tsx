@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import { Metadata } from 'next';
 import PostDetail from '../../../components/post/PostDetail';
 import { getDetailPost } from '../../../service/posts';
-import Head from 'next/head';
 import Loader from '@/components/common/Loader';
 
 interface Props {
