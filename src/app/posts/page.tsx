@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import PostList from '../../components/post/PostList';
-import PageTitle from '../../components/ui/PageTitle';
+import PageTitle from '../../components/common/PageTitle';
 import Layout from '../../components/common/layout/Layout';
 
 export const metadata: Metadata = {
