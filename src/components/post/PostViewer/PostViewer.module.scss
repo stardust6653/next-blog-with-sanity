@@ -88,6 +88,11 @@
           font-size: 0.8rem;
           margin-bottom: 1rem;
           line-height: 20px;
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+          &::-webkit-scrollbar {
+            display: none; /* Chrome , Safari , Opera */
+          }
           br {
             height: 0;
           }
@@ -96,11 +101,13 @@
       ol > li {
         font-weight: 700;
         font-size: 1.2rem;
-        margin-bottom: 0.5rem;
       }
       li {
+        display: flex;
         list-style: circle;
-        margin-bottom: 0.8rem;
+        &::before {
+          content: '❣️';
+        }
       }
       table {
         margin: 2rem 0;
@@ -129,6 +136,11 @@
   .post-viewer__group {
     .post-viewer {
       .post-viewer__content {
+        li {
+          list-style: none;
+          font-weight: 600;
+          color: #1f2838;
+        }
       }
     }
   }
