@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
 import { Card } from '../../types/types';
 
-export const getPosts = () => {
-  return fetch('/api/posts', { method: 'GET' })
+export const getPosts = async () => {
+  return fetch('/api/posts', { next: { revalidate: 60 * 30 }, method: 'GET' })
     .then((res) => {
       if (!res.ok) {
         return Promise.reject();
@@ -14,13 +14,15 @@ export const getPosts = () => {
     });
 };
 
-const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
+const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const posts: Card[] = await getPosts();
 
   const blogPosts = posts.map((post) => ({
     url: `https://www.soyeah-blog.xyz/posts/${post.id}`,
     lastModified: post.createdAt,
   }));
+
+  console.log(blogPosts);
 
   return [
     {
@@ -35,4 +37,4 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   ];
 };
 
-export default Sitemap;
+export default sitemap;
