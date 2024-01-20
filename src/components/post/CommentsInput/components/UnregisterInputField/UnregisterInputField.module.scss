@@ -24,3 +24,18 @@
     }
   }
 }
+
+@media screen and (max-width: 991px) {
+  .unregister-input-field__id-info {
+    height: 120px;
+    margin-top: 1rem;
+    width: 100%;
+    border-right: none;
+    .unregister-input-field__id-input-group,
+    .unregister-input-field__password-input-group {
+      label {
+        display: none;
+      }
+    }
+  }
+}

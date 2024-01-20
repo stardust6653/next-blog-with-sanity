@@ -157,7 +157,6 @@ export async function searchPosts(page: number, header?: string) {
   const lastContent = page + (page + 1) * 12;
   const keyword = header?.split(',')[0];
 
-  console.log(page, firstContent, lastContent);
   const query = keyword ? `&& (title match "${keyword}*")` : '';
   return client.fetch(`*[_type == "post" ${query}] | order(date desc)[${firstContent}...${lastContent}]{
     ${PostProjection}

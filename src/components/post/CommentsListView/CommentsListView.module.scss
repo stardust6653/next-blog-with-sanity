@@ -15,3 +15,15 @@
     margin-bottom: 3rem;
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .comments-list-view {
+    width: 768px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .comments-list-view {
+    width: 100%;
+  }
+}

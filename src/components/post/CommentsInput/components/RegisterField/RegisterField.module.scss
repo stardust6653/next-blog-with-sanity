@@ -16,11 +16,29 @@
     margin-bottom: 0.5rem;
   }
   .register-field__user-name {
+    text-align: center;
     font-weight: 700;
     margin-bottom: 0.3rem;
   }
   .register-field__user-email {
     font-weight: 400;
     font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .register-field {
+    width: 100%;
+    border-right: none;
+    flex-direction: row;
+    align-items: center;
+    height: 120px;
+    border-bottom: 1px solid black;
+    .register-field__user-image {
+      margin-bottom: 0;
+      margin-right: 0.5rem;
+    }
+    .register-field__user-name {
+      text-align: start;
+    }
   }
 }

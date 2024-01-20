@@ -36,3 +36,26 @@
     }
   }
 }
+
+@media screen and (max-width: 1360px) {
+  .comments {
+    width: 768px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .comments {
+    width: 100%;
+    .comments__field {
+      .comments__input-field {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comments {
+    width: 100%;
+  }
+}

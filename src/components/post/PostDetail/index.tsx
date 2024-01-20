@@ -12,7 +12,7 @@ import PostViewer from '../PostViewer';
 import CommentsInput from '../CommentsInput';
 import ListViewButton from '../PostViewer/components/ListViewButton';
 import CommentsListView from '../CommentsListView';
-import { Card } from '../../../../types/types';
+import { Card, Comment } from '../../../../types/types';
 
 type Props = {
   params: {
@@ -22,54 +22,53 @@ type Props = {
 
 const PostDetail = ({ params }: Props): any => {
   const id = params.slug;
-  const { posts, isLoading: loading } = usePosts();
+  const { posts, isLoading: loading, setComments } = usePosts();
+
   const { user } = useMe();
   const ownership = user?.owner;
 
   if (posts !== undefined) {
     const arrayPosts: Card[] = Array.from(posts);
 
-    const post = () => {
-      return arrayPosts.filter((item: Card) => item.id === id)[0];
-    };
+    const post = arrayPosts.filter((item: Card) => item.id === id)[0];
 
     if (!ownership) {
-      viewCountUpdate(post()?.id, post().viewCount);
+      viewCountUpdate(post?.id, post.viewCount);
     }
+
+    const handleComments = (comments: Comment) => {
+      posts && setComments(post, comments);
+    };
 
     return (
       <>
         {loading && <Loader />}
         <article className={styles['post-detail']}>
-          {post() && (
+          {post && (
             <>
               <div
                 className={styles['post-detail__title-group']}
-                style={{ background: `url(${post()?.thumbnail}) no-repeat center center`, backgroundSize: 'cover' }}
+                style={{ background: `url(${post?.thumbnail}) no-repeat center center`, backgroundSize: 'cover' }}
               >
-                <SideBar post={post()} />
+                <SideBar post={post} />
                 <div className={styles['post-detail__title-box']}>
                   <div>
-                    <h1 className={styles['post-detail__title']}>{post()?.title}</h1>
-                    <p className={styles['post-detail__description']}>{post()?.description}</p>
+                    <h1 className={styles['post-detail__title']}>{post?.title}</h1>
+                    <p className={styles['post-detail__description']}>{post?.description}</p>
                   </div>
-                  <p className={styles['post-detail__created-date']}>{parseDate(post()?.date)}</p>
+                  <p className={styles['post-detail__created-date']}>{parseDate(post?.date)}</p>
                 </div>
               </div>
 
               <div className={styles['post-detail__viewer']}>
-                <PostViewer post={post()} />
+                <PostViewer post={post} />
               </div>
             </>
           )}
-          {/* <div className={styles['post-detail__comment-group']}>
-            <div className={styles['post-detail__comments']}>
-              <CommentsInput id={id} commentsCount={post().commentsCount} />
-            </div>
-            <div className={styles['post-detail__comments-list-view']}>
-              <CommentsListView comments={post().comments} postId={id} commentsCount={post().commentsCount} />
-            </div>
-          </div> */}
+          <div className={styles['post-detail__comment-group']}>
+            <CommentsInput id={id} commentsCount={post?.commentsCount} handleComments={handleComments} />
+            <CommentsListView post={post} comments={post?.comments} postId={id} commentsCount={post?.commentsCount} />
+          </div>
           <ListViewButton />
         </article>
       </>

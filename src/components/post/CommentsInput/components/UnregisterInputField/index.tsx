@@ -5,9 +5,11 @@ import styles from './UnregisterInputField.module.scss';
 interface Props {
   setAuthor: Dispatch<SetStateAction<string>>;
   setPassword: Dispatch<SetStateAction<string>>;
+  author: string;
+  password: string;
 }
 
-const UnregisterInputField = ({ setAuthor, setPassword }: Props) => {
+const UnregisterInputField = ({ author, password, setAuthor, setPassword }: Props) => {
   return (
     <form className={styles['unregister-input-field__id-info']}>
       <div className={styles['unregister-input-field__id-input-group']}>
@@ -15,6 +17,7 @@ const UnregisterInputField = ({ setAuthor, setPassword }: Props) => {
           ID
         </label>
         <input
+          value={author}
           minLength={2}
           maxLength={10}
           onChange={(e) => {
@@ -29,6 +32,7 @@ const UnregisterInputField = ({ setAuthor, setPassword }: Props) => {
       <div className={styles['unregister-input-field__password-input-group']}>
         <label htmlFor="password-input">Password</label>
         <input
+          value={password}
           onChange={(e) => {
             setPassword(e.currentTarget.value);
           }}
