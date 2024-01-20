@@ -66,12 +66,8 @@ const PostDetail = ({ params }: Props): any => {
             </>
           )}
           <div className={styles['post-detail__comment-group']}>
-            <div className={styles['post-detail__comments']}>
-              <CommentsInput id={id} commentsCount={post?.commentsCount} handleComments={handleComments} />
-            </div>
-            <div className={styles['post-detail__comments-list-view']}>
-              <CommentsListView post={post} comments={post?.comments} postId={id} commentsCount={post?.commentsCount} />
-            </div>
+            <CommentsInput id={id} commentsCount={post?.commentsCount} handleComments={handleComments} />
+            <CommentsListView post={post} comments={post?.comments} postId={id} commentsCount={post?.commentsCount} />
           </div>
           <ListViewButton />
         </article>

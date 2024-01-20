@@ -14,8 +14,10 @@ const RegisterField = ({ user }: Props) => {
         className={styles['register-field__user-image']}
         style={{ background: `url(${user.image}) center center`, backgroundSize: 'cover' }}
       />
-      <div className={styles['register-field__user-name']}>{user.username}</div>
-      <div className={styles['register-field__user-email']}>{user.email}</div>
+      <div>
+        <div className={styles['register-field__user-name']}>{user.username}</div>
+        <div className={styles['register-field__user-email']}>{user.email}</div>
+      </div>
     </div>
   );
 };
