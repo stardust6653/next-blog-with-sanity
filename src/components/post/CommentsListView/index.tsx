@@ -7,18 +7,19 @@ import CommentItem from './components/CommentItem';
 import { Comment, SaveComment } from '../../../../types/types';
 
 interface Props {
+  post: any;
   comments: SaveComment[];
   postId: string;
   commentsCount: number | null;
 }
 
-const CommentsListView = ({ comments, postId, commentsCount }: Props) => {
+const CommentsListView = ({ post, comments, postId, commentsCount }: Props) => {
   return (
     <div className={styles['comments-list-view']}>
       {commentsCount !== 0 ? (
         <>
-          {comments.map((item) => {
-            return <CommentItem key={item.id} data={item} postId={postId} />;
+          {comments?.map((item) => {
+            return <CommentItem post={post} key={item.id} data={item} postId={postId} />;
           })}
         </>
       ) : (

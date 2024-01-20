@@ -4,13 +4,15 @@ import styles from './TextArea.module.scss';
 
 interface Props {
   setContent: Dispatch<SetStateAction<string>>;
+  content: string;
 }
 
-const TextArea = ({ setContent }: Props) => {
+const TextArea = ({ setContent, content }: Props) => {
   return (
     <textarea
       minLength={2}
       maxLength={240}
+      value={content}
       onChange={(e) => {
         setContent(e.currentTarget.value);
       }}

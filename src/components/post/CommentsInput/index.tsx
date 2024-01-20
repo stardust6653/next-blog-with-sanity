@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 
 import styles from './CommentsInput.module.scss';
@@ -7,16 +9,17 @@ import UnregisterInputField from './components/UnregisterInputField';
 import TextArea from './components/TextArea';
 import RegisterField from './components/RegisterField';
 
-import { Comment } from '../../../../types/types';
+import { Comment, SaveComment } from '../../../../types/types';
+import usePosts from '../../../hooks/posts';
 
 interface Props {
   id: string;
   commentsCount: number | null;
+  handleComments: (comments: Comment) => void;
 }
 
-const CommentsInput = ({ id, commentsCount }: Props) => {
+const CommentsInput = ({ id, commentsCount, handleComments }: Props) => {
   const { user } = useMe();
-  console.log(user);
 
   const [author, setAuthor] = useState('');
   const [password, setPassword] = useState('');
@@ -45,12 +48,20 @@ const CommentsInput = ({ id, commentsCount }: Props) => {
           {user ? (
             <RegisterField user={user} />
           ) : (
-            <UnregisterInputField setAuthor={setAuthor} setPassword={setPassword} />
+            <UnregisterInputField author={author} password={password} setAuthor={setAuthor} setPassword={setPassword} />
           )}
-          <TextArea setContent={setContent} />
+          <TextArea setContent={setContent} content={content} />
         </div>
         <div className={styles['comments__button-area']}>
-          <button className={styles['comments__button']} onClick={() => patchComment(commentData)}>
+          <button
+            className={styles['comments__button']}
+            onClick={() => {
+              handleComments(commentData);
+              setContent('');
+              setAuthor('');
+              setPassword('');
+            }}
+          >
             작성하기
           </button>
         </div>

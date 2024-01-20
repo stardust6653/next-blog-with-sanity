@@ -1,7 +1,9 @@
 'use client';
 
-import useSWR, { useSWRConfig } from 'swr';
-import { Card } from '../../types/types';
+import useSWR from 'swr';
+import { Card, Comment, SaveComment } from '../../types/types';
+import { patchComment } from '../util/patchComment';
+import { deleteComment } from '../util/deleteComment';
 
 type SimplePostProps = {
   comments: number;
@@ -42,5 +44,39 @@ export default function usePosts() {
     });
   };
 
-  return { posts, isLoading, error, setLike };
+  const setComments = (post: any, writingComment: Comment) => {
+    const newPost = {
+      ...post,
+      comments: writingComment ? [...post.comments, writingComment] : post.comments,
+      commentsCount: post.commentsCount + 1,
+    };
+
+    const newPosts = posts?.map((p: Card) => (p.id === post.id ? newPost : p));
+
+    return mutate(patchComment(writingComment), {
+      optimisticData: newPosts,
+      populateCache: false,
+      revalidate: false,
+      rollbackOnError: true,
+    });
+  };
+
+  const deleteComments = (post: any, comments: any, postId: string) => {
+    const newPost = {
+      ...post,
+      comments: postId ? post.comments.filter((item: SaveComment) => item._key !== comments._key) : post.comments,
+      commentsCount: post.commentsCount - 1,
+    };
+
+    const newPosts = posts?.map((p: Card) => (p.id === post.id ? newPost : p));
+
+    return mutate(deleteComment(comments, postId), {
+      optimisticData: newPosts,
+      populateCache: false,
+      revalidate: false,
+      rollbackOnError: true,
+    });
+  };
+
+  return { posts, isLoading, error, setLike, setComments, deleteComments };
 }

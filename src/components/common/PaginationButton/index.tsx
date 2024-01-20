@@ -10,8 +10,8 @@ interface Props {
 
 const PaginationButton = ({ contentLength, setPage, page }: Props) => {
   const contentLengthArr = (): number[] => {
-    const arr = [];
-    for (let i = 1; i <= Math.ceil(contentLength / 12); i++) {
+    const arr: number[] = [];
+    for (let i: number = 1; i <= Math.ceil(contentLength / 12); i++) {
       arr.push(i);
     }
     return arr;
