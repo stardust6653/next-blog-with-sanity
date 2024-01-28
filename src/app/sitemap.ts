@@ -182,6 +182,10 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       url: 'https://www.soyeah-blog.xyz/posts/r8QI4XsJMHUG6h19GVdiB3',
       lastModified: new Date(),
     },
+    {
+      url: 'https://www.soyeah-blog.xyz/posts/r8QI4XsJMHUG6h19HRZlmf',
+      lastModified: new Date(),
+    },
   ];
 };
 
