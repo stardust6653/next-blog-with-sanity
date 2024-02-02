@@ -1,10 +1,13 @@
 import React from 'react';
 
 import styles from './MyInfo.module.scss';
-import Career from './components/Career';
+
 import Contact from './components/Contact';
+import dynamic from 'next/dynamic';
 
 const MyInfo = () => {
+  const Career = dynamic(() => import('./components/Career'), { ssr: false });
+
   return (
     <article className={styles['my-info']}>
       <Career />
