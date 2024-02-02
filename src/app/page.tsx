@@ -2,10 +2,12 @@ import React from 'react';
 
 import PageTitle from '../components/common/PageTitle';
 import Introduction from '@/components/main/Introduction';
-import NewPostList from '@/components/main/NewPostList';
 import CenterAlignment from '@/components/common/layout/CenterAlignment';
+import dynamic from 'next/dynamic';
 
 const Home = async () => {
+  const NewPostList = dynamic(() => import('../components/main/NewPostList'), { ssr: false });
+
   return (
     <>
       <CenterAlignment>
